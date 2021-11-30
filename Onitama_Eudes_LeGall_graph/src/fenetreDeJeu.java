@@ -27,30 +27,26 @@ public class fenetreDeJeu extends javax.swing.JFrame {
 
         panneau_grille = new javax.swing.JPanel();
         panneau_carte5 = new javax.swing.JPanel();
-        panneau_carte4 = new javax.swing.JPanel();
         panneau_carte3 = new javax.swing.JPanel();
-        panneau_carte1 = new javax.swing.JPanel();
-        panneau_carte2 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        lbl_nom_j2 = new javax.swing.JTextField();
+        lbl_nom_j1 = new javax.swing.JTextField();
+        jbt_start = new javax.swing.JButton();
         jPanel8 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        panneau_carte6 = new javax.swing.JPanel();
+        panneau_carte7 = new javax.swing.JPanel();
+        panneau_carte8 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panneau_grille.setBackground(new java.awt.Color(240, 230, 230));
-
-        javax.swing.GroupLayout panneau_grilleLayout = new javax.swing.GroupLayout(panneau_grille);
-        panneau_grille.setLayout(panneau_grilleLayout);
-        panneau_grilleLayout.setHorizontalGroup(
-            panneau_grilleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 500, Short.MAX_VALUE)
-        );
-        panneau_grilleLayout.setVerticalGroup(
-            panneau_grilleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-
-        getContentPane().add(panneau_grille, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 150, 500, 400));
+        panneau_grille.setLayout(new java.awt.GridLayout(5, 5));
+        getContentPane().add(panneau_grille, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 200, 400, 400));
 
         panneau_carte5.setBackground(new java.awt.Color(240, 230, 200));
 
@@ -58,29 +54,14 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         panneau_carte5.setLayout(panneau_carte5Layout);
         panneau_carte5Layout.setHorizontalGroup(
             panneau_carte5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 220, Short.MAX_VALUE)
+            .addGap(0, 300, Short.MAX_VALUE)
         );
         panneau_carte5Layout.setVerticalGroup(
             panneau_carte5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 130, Short.MAX_VALUE)
+            .addGap(0, 174, Short.MAX_VALUE)
         );
 
-        getContentPane().add(panneau_carte5, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 560, 220, 130));
-
-        panneau_carte4.setBackground(new java.awt.Color(240, 230, 200));
-
-        javax.swing.GroupLayout panneau_carte4Layout = new javax.swing.GroupLayout(panneau_carte4);
-        panneau_carte4.setLayout(panneau_carte4Layout);
-        panneau_carte4Layout.setHorizontalGroup(
-            panneau_carte4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 220, Short.MAX_VALUE)
-        );
-        panneau_carte4Layout.setVerticalGroup(
-            panneau_carte4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 130, Short.MAX_VALUE)
-        );
-
-        getContentPane().add(panneau_carte4, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 560, -1, -1));
+        getContentPane().add(panneau_carte5, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 610, 300, 174));
 
         panneau_carte3.setBackground(new java.awt.Color(240, 230, 200));
 
@@ -88,77 +69,127 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         panneau_carte3.setLayout(panneau_carte3Layout);
         panneau_carte3Layout.setHorizontalGroup(
             panneau_carte3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 160, Short.MAX_VALUE)
+            .addGap(0, 174, Short.MAX_VALUE)
         );
         panneau_carte3Layout.setVerticalGroup(
             panneau_carte3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 220, Short.MAX_VALUE)
+            .addGap(0, 300, Short.MAX_VALUE)
         );
 
-        getContentPane().add(panneau_carte3, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 200, 160, 220));
-
-        panneau_carte1.setBackground(new java.awt.Color(240, 230, 200));
-
-        javax.swing.GroupLayout panneau_carte1Layout = new javax.swing.GroupLayout(panneau_carte1);
-        panneau_carte1.setLayout(panneau_carte1Layout);
-        panneau_carte1Layout.setHorizontalGroup(
-            panneau_carte1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 220, Short.MAX_VALUE)
-        );
-        panneau_carte1Layout.setVerticalGroup(
-            panneau_carte1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 130, Short.MAX_VALUE)
-        );
-
-        getContentPane().add(panneau_carte1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 10, -1, -1));
-
-        panneau_carte2.setBackground(new java.awt.Color(240, 230, 200));
-
-        javax.swing.GroupLayout panneau_carte2Layout = new javax.swing.GroupLayout(panneau_carte2);
-        panneau_carte2.setLayout(panneau_carte2Layout);
-        panneau_carte2Layout.setHorizontalGroup(
-            panneau_carte2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 220, Short.MAX_VALUE)
-        );
-        panneau_carte2Layout.setVerticalGroup(
-            panneau_carte2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 130, Short.MAX_VALUE)
-        );
-
-        getContentPane().add(panneau_carte2, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 10, -1, -1));
+        getContentPane().add(panneau_carte3, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 230, 174, 300));
 
         jPanel7.setBackground(new java.awt.Color(240, 200, 180));
+        jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 270, Short.MAX_VALUE)
-        );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 160, Short.MAX_VALUE)
-        );
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        jLabel1.setText("Joueur 2 :");
+        jPanel7.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, -1, -1));
 
-        getContentPane().add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, 270, 160));
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        jLabel2.setText("Joueur 1 :");
+        jPanel7.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, -1, -1));
+
+        lbl_nom_j2.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        lbl_nom_j2.setText("jTextField1");
+        lbl_nom_j2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lbl_nom_j2ActionPerformed(evt);
+            }
+        });
+        jPanel7.add(lbl_nom_j2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, 170, -1));
+
+        lbl_nom_j1.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        lbl_nom_j1.setText("Jnom1");
+        lbl_nom_j1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lbl_nom_j1ActionPerformed(evt);
+            }
+        });
+        jPanel7.add(lbl_nom_j1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 30, 170, -1));
+
+        jbt_start.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        jbt_start.setText("Start");
+        jbt_start.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbt_startActionPerformed(evt);
+            }
+        });
+        jPanel7.add(jbt_start, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 120, -1, -1));
+
+        getContentPane().add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 350, 180));
 
         jPanel8.setBackground(new java.awt.Color(240, 200, 180));
+        jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
-        jPanel8.setLayout(jPanel8Layout);
-        jPanel8Layout.setHorizontalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 270, Short.MAX_VALUE)
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        jLabel3.setText("Joueur 1");
+        jPanel8.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        jLabel4.setText("Infos joueurs");
+        jPanel8.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+
+        getContentPane().add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 350, 550));
+
+        panneau_carte6.setBackground(new java.awt.Color(240, 230, 200));
+
+        javax.swing.GroupLayout panneau_carte6Layout = new javax.swing.GroupLayout(panneau_carte6);
+        panneau_carte6.setLayout(panneau_carte6Layout);
+        panneau_carte6Layout.setHorizontalGroup(
+            panneau_carte6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
         );
-        jPanel8Layout.setVerticalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 430, Short.MAX_VALUE)
+        panneau_carte6Layout.setVerticalGroup(
+            panneau_carte6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 174, Short.MAX_VALUE)
         );
 
-        getContentPane().add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, -1, 430));
+        getContentPane().add(panneau_carte6, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 610, -1, -1));
 
-        setBounds(0, 0, 1103, 735);
+        panneau_carte7.setBackground(new java.awt.Color(240, 230, 200));
+
+        javax.swing.GroupLayout panneau_carte7Layout = new javax.swing.GroupLayout(panneau_carte7);
+        panneau_carte7.setLayout(panneau_carte7Layout);
+        panneau_carte7Layout.setHorizontalGroup(
+            panneau_carte7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+        panneau_carte7Layout.setVerticalGroup(
+            panneau_carte7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 174, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(panneau_carte7, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 10, -1, -1));
+
+        panneau_carte8.setBackground(new java.awt.Color(240, 230, 200));
+
+        javax.swing.GroupLayout panneau_carte8Layout = new javax.swing.GroupLayout(panneau_carte8);
+        panneau_carte8.setLayout(panneau_carte8Layout);
+        panneau_carte8Layout.setHorizontalGroup(
+            panneau_carte8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+        panneau_carte8Layout.setVerticalGroup(
+            panneau_carte8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 174, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(panneau_carte8, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 10, -1, -1));
+
+        setBounds(0, 0, 1065, 831);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void lbl_nom_j1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lbl_nom_j1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lbl_nom_j1ActionPerformed
+
+    private void lbl_nom_j2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lbl_nom_j2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lbl_nom_j2ActionPerformed
+
+    private void jbt_startActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbt_startActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbt_startActionPerformed
 
     /**
      * @param args the command line arguments
@@ -196,13 +227,20 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
-    private javax.swing.JPanel panneau_carte1;
-    private javax.swing.JPanel panneau_carte2;
+    private javax.swing.JButton jbt_start;
+    private javax.swing.JTextField lbl_nom_j1;
+    private javax.swing.JTextField lbl_nom_j2;
     private javax.swing.JPanel panneau_carte3;
-    private javax.swing.JPanel panneau_carte4;
     private javax.swing.JPanel panneau_carte5;
+    private javax.swing.JPanel panneau_carte6;
+    private javax.swing.JPanel panneau_carte7;
+    private javax.swing.JPanel panneau_carte8;
     private javax.swing.JPanel panneau_grille;
     // End of variables declaration//GEN-END:variables
 }
