@@ -366,15 +366,6 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         jLabelC1.setText(j1.couleur);
         jLabelC2.setText(j2.couleur);
         
-        System.out.println("hello");
-        
-        for (int i=0; i<5; i++){
-            for (int j=0; i<0; j++){
-                if (boar.grilleCarte[i][j]=true)
-                System.out.print("X");
-                else System.out.print("O");
-            }
-        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
