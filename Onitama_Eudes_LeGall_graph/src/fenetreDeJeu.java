@@ -108,13 +108,13 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         panneau_info_joueurs.setBackground(new java.awt.Color(240, 200, 180));
         panneau_info_joueurs.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         jLabel1.setText("Joueur 2 :");
-        panneau_info_joueurs.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, -1, -1));
+        panneau_info_joueurs.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         jLabel2.setText("Joueur 1 :");
-        panneau_info_joueurs.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, -1, -1));
+        panneau_info_joueurs.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
 
         nom_joueur2.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         nom_joueur2.addActionListener(new java.awt.event.ActionListener() {
@@ -300,8 +300,56 @@ public class fenetreDeJeu extends javax.swing.JFrame {
             ListeJoueurs[1].affecterCouleur("rouge");
             ListeJoueurs[0].affecterCouleur("bleu"); // on affecte des couleurs aux joueurs en fonction du chiffre aléatoire
         }
-        System.out.println(ListeJoueurs[0].couleur);
     }
+    public void creationCartes(){
+        
+        int[][] coordboar = {{2,1},{1,2},{2,3}};
+        Carte cboar = new Carte("boar",coordboar) ;
+        
+        int[][] coordcobra = {{2,1},{1,3},{3,3}};
+        Carte ccobra = new Carte("cobra",coordcobra) ;
+        
+        int[][] coordcrab = {{2,0},{1,2},{2,4}};
+        Carte ccrab = new Carte("crab",coordcrab) ;
+        
+        int[][] coordcrane = {{3,1},{2,1},{3,3}};
+        Carte ccrane = new Carte("crane",coordcrane) ;
+        
+        int[][] coorddragon = {{0,1},{1,3},{3,3},{4,1}};
+        Carte cdragon = new Carte("dragon",coorddragon) ;
+        
+        int[][] coordeel = {{1,1},{1,3},{3,2}};
+        Carte ceel = new Carte("eel",coordeel) ;
+        
+        int[][] coordelephant = {{1,1},{1,2},{3,1},{3,2}};
+        Carte celephant = new Carte("elephant",coordelephant) ;
+        
+        int[][] coordgoose = {{1,1},{1,2},{3,2},{3,3}};
+        Carte cgoose = new Carte("goose",coordgoose) ;
+        
+        int[][] coordhorse = {{1,2},{2,1},{2,3}};
+        Carte chorse = new Carte("horse",coordhorse) ;
+        
+        int[][] coordmantis = {{1,1},{2,3},{3,1}};
+        Carte cmantis = new Carte("mantis",coordmantis) ;
+        
+        int[][] coordmonkey = {{1,1},{1,3},{3,1},{3,3}};
+        Carte cmonkey = new Carte("monkey",coordmonkey) ;
+        
+        int[][] coordox = {{2,1},{3,2},{2,3}};
+        Carte cox = new Carte("ox",coordox) ;
+        
+        int[][] coordrabbit = {{1,3},{3,1},{4,2}};
+        Carte crabbit = new Carte("rabbit",coordrabbit) ;
+        
+        int[][] coordrooster = {{1,2},{1,3},{3,1},{3,2}};
+        Carte crooster = new Carte("rooster", coordrooster) ;
+        
+        int[][] coordtiger = {{2,0},{2,3}};
+        Carte ctiger = new Carte("tiger" ,coordtiger) ;
+        
+    }
+    
     public void initialiserPartie() {
         
         String nomJoueur1 = nom_joueur1.getText();
@@ -317,6 +365,16 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         jLabelJ2.setText(nomJoueur2);
         jLabelC1.setText(j1.couleur);
         jLabelC2.setText(j2.couleur);
+        
+        System.out.println("hello");
+        
+        for (int i=0; i<5; i++){
+            for (int j=0; i<0; j++){
+                if (boar.grilleCarte[i][j]=true)
+                System.out.print("X");
+                else System.out.print("O");
+            }
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
