@@ -6,11 +6,12 @@ import java.awt.Graphics;
 import java.util.HashMap;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 /**
  *
  * @author victorlegall
  */
-public class Carte {
+public class Carte extends JLabel {
     
     ImageIcon carte_boar = new javax.swing.ImageIcon(getClass().getResource("/cartes/boar.png"));
     ImageIcon carte_cobra = new javax.swing.ImageIcon(getClass().getResource("/cartes/cobra.png"));
@@ -29,6 +30,7 @@ public class Carte {
     ImageIcon carte_rooster = new javax.swing.ImageIcon(getClass().getResource("/cartes/rooster.png"));
     ImageIcon carte_tiger = new javax.swing.ImageIcon(getClass().getResource("/cartes/tiger.png"));
     
+    String nom;
     
     
     // On creer une grille de booleens, false si on ne peut pas joueur la sur la position de la grille, true si on peut joueur cette position
@@ -61,7 +63,12 @@ public class Carte {
         h.put("tiger", carte_tiger);
     }
     
-    public void printCarte(){
+    @Override
+    public void  paintComponent ( Graphics G) {
+        ImageIcon result = (ImageIcon) h.get(nom);
+        super.paintComponent(G);
+        setIcon(result);
+        
         
     }
     
