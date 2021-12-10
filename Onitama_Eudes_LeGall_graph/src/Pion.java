@@ -16,6 +16,7 @@ import javax.swing.JButton;
  */
 public class Pion extends JButton {
     
+    // On importes les images de toutes les pions
     ImageIcon img_vide = new javax.swing.ImageIcon(getClass().getResource("/images/Case_Vide.png"));
     ImageIcon img_pion_rouge = new javax.swing.ImageIcon(getClass().getResource("/images/Pion_Rouge.png"));
     ImageIcon img_pion_bleu = new javax.swing.ImageIcon(getClass().getResource("/images/Pion_Bleu.png"));
