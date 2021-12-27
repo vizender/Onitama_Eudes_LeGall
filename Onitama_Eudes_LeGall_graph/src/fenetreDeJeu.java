@@ -434,7 +434,10 @@ public class fenetreDeJeu extends javax.swing.JFrame {
             while (test==false);
         }
         j1_carte1.add(CarteJeu[0]);
-        
+        j1_carte2.add(CarteJeu[1]);
+        j2_carte1.add(CarteJeu[2]);
+        j2_carte2.add(CarteJeu[3]);
+        att_carte.add(CarteJeu[4]);
     }
     
     public void initialiserPartie() {
@@ -460,7 +463,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
                 panneau_grille.add(pionJeu);
             }
         }
-        placerPion() ;
+
         creationCartes();
         panneau_grille.repaint();
     }
