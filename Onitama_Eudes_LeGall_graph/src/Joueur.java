@@ -25,11 +25,11 @@ public class Joueur {
     
     //On demande la couleur du joueur
     String demanderCouleur(){
-        if ("blanc".equals(couleur)){ // On verifie si la couleur est blanc
-            return "blanc";
+        if ("bleu".equals(couleur)){ // On verifie si la couleur est blanc
+            return "bleu";
         }
-        if ("noir".equals(couleur)){ // On verifie si la couleur est noir
-            return "noir";
+        if ("rouge".equals(couleur)){ // On verifie si la couleur est noir
+            return "rouge";
         }
         return "erreur";
     }
