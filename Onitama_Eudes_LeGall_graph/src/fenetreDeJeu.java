@@ -438,6 +438,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         j2_carte1.add(CarteJeu[2]);
         j2_carte2.add(CarteJeu[3]);
         att_carte.add(CarteJeu[4]);
+       
     }
     
     public void placerPion(){
