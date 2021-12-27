@@ -437,6 +437,13 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         
     }
     
+    public void placerPion(){
+        for (int i=0 ; i<5 ; i++){
+            grilleJeu.tabPion[0][i].couleur="bleu";
+            grilleJeu.tabPion[4][i].couleur="rouge";
+        }
+    }
+    
     public void initialiserPartie() {
         
         String nomJoueur1 = nom_joueur1.getText();
