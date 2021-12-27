@@ -59,6 +59,10 @@ public class Pion extends JButton {
     @Override
     public void paintComponent ( Graphics G) {
         super.paintComponent(G);
+        if(couleur=="bleu" && roi==false)setIcon(img_pion_bleu);
+        if(couleur=="rouge" && roi==false)setIcon(img_roi_rouge);
+        if(couleur=="bleu" && roi==true)setIcon(img_roi_bleu);
+        if(couleur=="rouge" && roi==true)setIcon(img_roi_rouge);
         setIcon(img_vide);
         
     }
