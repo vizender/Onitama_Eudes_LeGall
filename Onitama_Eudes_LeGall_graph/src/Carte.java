@@ -14,22 +14,22 @@ import javax.swing.JLabel;
 public class Carte extends JButton {
     
     //On ajoute toutes les images
-    ImageIcon carte_boar = new javax.swing.ImageIcon(getClass().getResource("/cartes/boar.png"));
-    ImageIcon carte_cobra = new javax.swing.ImageIcon(getClass().getResource("/cartes/cobra.png"));
-    ImageIcon carte_crab = new javax.swing.ImageIcon(getClass().getResource("/cartes/crab.png"));
-    ImageIcon carte_crane = new javax.swing.ImageIcon(getClass().getResource("/cartes/crane.png"));
-    ImageIcon carte_dragon = new javax.swing.ImageIcon(getClass().getResource("/cartes/dragon.png"));
-    ImageIcon carte_eel = new javax.swing.ImageIcon(getClass().getResource("/cartes/eel.png"));
-    ImageIcon carte_elephant = new javax.swing.ImageIcon(getClass().getResource("/cartes/elephant.png"));
-    ImageIcon carte_frog = new javax.swing.ImageIcon(getClass().getResource("/cartes/frog.png"));
-    ImageIcon carte_goose = new javax.swing.ImageIcon(getClass().getResource("/cartes/goose.png"));
-    ImageIcon carte_horse = new javax.swing.ImageIcon(getClass().getResource("/cartes/horse.png"));
-    ImageIcon carte_mantis = new javax.swing.ImageIcon(getClass().getResource("/cartes/mantis.png"));
-    ImageIcon carte_monkey = new javax.swing.ImageIcon(getClass().getResource("/cartes/monkey.png"));
-    ImageIcon carte_ox = new javax.swing.ImageIcon(getClass().getResource("/cartes/ox.png"));
-    ImageIcon carte_rabbit = new javax.swing.ImageIcon(getClass().getResource("/cartes/rabbit.png"));
-    ImageIcon carte_rooster = new javax.swing.ImageIcon(getClass().getResource("/cartes/rooster.png"));
-    ImageIcon carte_tiger = new javax.swing.ImageIcon(getClass().getResource("/cartes/tiger.png"));
+    ImageIcon carte_boar = new javax.swing.ImageIcon(getClass().getResource("/cartes/boar.jpg"));
+    ImageIcon carte_cobra = new javax.swing.ImageIcon(getClass().getResource("/cartes/cobra.jpg"));
+    ImageIcon carte_crab = new javax.swing.ImageIcon(getClass().getResource("/cartes/crab.jpg"));
+    ImageIcon carte_crane = new javax.swing.ImageIcon(getClass().getResource("/cartes/crane.jpg"));
+    ImageIcon carte_dragon = new javax.swing.ImageIcon(getClass().getResource("/cartes/dragon.jpg"));
+    ImageIcon carte_eel = new javax.swing.ImageIcon(getClass().getResource("/cartes/eel.jpg"));
+    ImageIcon carte_elephant = new javax.swing.ImageIcon(getClass().getResource("/cartes/elephant.jpg"));
+    ImageIcon carte_frog = new javax.swing.ImageIcon(getClass().getResource("/cartes/frog.jpg"));
+    ImageIcon carte_goose = new javax.swing.ImageIcon(getClass().getResource("/cartes/goose.jpg"));
+    ImageIcon carte_horse = new javax.swing.ImageIcon(getClass().getResource("/cartes/horse.jpg"));
+    ImageIcon carte_mantis = new javax.swing.ImageIcon(getClass().getResource("/cartes/mantis.jpg"));
+    ImageIcon carte_monkey = new javax.swing.ImageIcon(getClass().getResource("/cartes/monkey.jpg"));
+    ImageIcon carte_ox = new javax.swing.ImageIcon(getClass().getResource("/cartes/ox.jpg"));
+    ImageIcon carte_rabbit = new javax.swing.ImageIcon(getClass().getResource("/cartes/rabbit.jpg"));
+    ImageIcon carte_rooster = new javax.swing.ImageIcon(getClass().getResource("/cartes/rooster.jpg"));
+    ImageIcon carte_tiger = new javax.swing.ImageIcon(getClass().getResource("/cartes/tiger.jpg"));
     
     String nom;
     
