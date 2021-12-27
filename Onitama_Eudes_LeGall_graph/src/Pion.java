@@ -33,11 +33,11 @@ public class Pion extends JButton {
     }
     
     String demanderCouleur(){
-        if (couleur == "blanc"){
-            return "blanc";
+        if (couleur == "bleu"){
+            return "bleu";
         }
-        if (couleur == "noir"){
-            return "noir";
+        if (couleur == "rouge"){
+            return "rouge";
         }
         return "erreur";
     }
