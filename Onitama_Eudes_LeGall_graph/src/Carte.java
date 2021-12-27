@@ -13,6 +13,7 @@ import javax.swing.JLabel;
  */
 public class Carte extends JButton {
     
+    //On ajoute toutes les images
     ImageIcon carte_boar = new javax.swing.ImageIcon(getClass().getResource("/cartes/boar.png"));
     ImageIcon carte_cobra = new javax.swing.ImageIcon(getClass().getResource("/cartes/cobra.png"));
     ImageIcon carte_crab = new javax.swing.ImageIcon(getClass().getResource("/cartes/crab.png"));
@@ -63,13 +64,13 @@ public class Carte extends JButton {
         h.put("tiger", carte_tiger);
     }
     
+    
+    //Affichage des cartes via le hashage, on apelle le nom de la carte, qui est la clef correspondante a l'img de la carte
     @Override
     public void  paintComponent ( Graphics G) {
         ImageIcon result = (ImageIcon) h.get(nom);
         super.paintComponent(G);
-        setIcon(result);
-        
-        
+        setIcon(result); 
     }
     
 }

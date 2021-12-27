@@ -25,15 +25,17 @@ public class Pion extends JButton {
     ImageIcon img_castle_rouge = new javax.swing.ImageIcon(getClass().getResource("/images/Case_Castle_Down.png"));
     ImageIcon img_castle_bleu = new javax.swing.ImageIcon(getClass().getResource("/images/Case_Castle_Up.png"));
     
+    // 2 Attribus des pions, couleur et type roi
     String couleur;
-    String type;
     boolean roi;
     
+    // Constructeur; on demande la couleur et le type du pion
     public Pion(String color, boolean king){
         couleur = color;
         roi=king;
     }
     
+    //Demander la couleur du pion
     String demanderCouleur(){
         if (couleur == "bleu"){
             return "bleu";
@@ -44,11 +46,20 @@ public class Pion extends JButton {
         return "erreur";
     }
     
+    //Demander si estRoi
+    boolean estRoi(){
+        if (roi == true){
+            return true;
+        }
+        return false;
+    }
+    
+    
+    //Affichage des pions
     @Override
     public void paintComponent ( Graphics G) {
         super.paintComponent(G);
         setIcon(img_vide);
         
-       
     }
 }
