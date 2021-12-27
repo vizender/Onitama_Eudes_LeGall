@@ -319,13 +319,13 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_att_carteActionPerformed
 
-    private void btn_j1_carte1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_j1_carte1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_j1_carte1ActionPerformed
-
     private void btn_j1_carte2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_j1_carte2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_j1_carte2ActionPerformed
+
+    private void btn_j1_carte1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_j1_carte1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_j1_carte1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -425,7 +425,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         
         Carte [] CarteJeu = new Carte[5];
         Random r = new Random();
-        boolean test = false ;
+        boolean test;
         for (int i=0 ; i<5 ; i++){
             do{
                 int R = r.nextInt(15);
@@ -438,8 +438,10 @@ public class fenetreDeJeu extends javax.swing.JFrame {
                     }
                 }
             }
-            while (test==true);
+            while (test==false);
         }
+        j1_carte1.add(CarteJeu[0]);
+        
     }
     
     public void initialiserPartie() {
