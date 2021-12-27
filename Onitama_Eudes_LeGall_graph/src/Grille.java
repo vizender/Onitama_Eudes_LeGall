@@ -9,18 +9,18 @@
  */
 public class Grille {
     // La Grille de 5x5 sera constituée de pions
-    Pion grille [][] = new Pion[5][5];
+    Pion tabPion [][] = new Pion[5][5];
     
     //On initialise une grille vide
     public Grille(){
         for (int i=0; i<5; i++){
             for (int j=0; j<5; j++){
-                grille[i][j]=null;
+                tabPion[i][j]=null;
             }
         }
     }
     
     public void ajouterPion(Pion pion,int i,int j){
-        grille[i][j]=pion ;
+        tabPion[i][j]=pion ;
     }
 }

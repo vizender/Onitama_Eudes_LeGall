@@ -14,7 +14,7 @@ import java.util.Scanner;
 public class fenetreDeJeu extends javax.swing.JFrame {
     Joueur[] ListeJoueurs = new Joueur[2];
     Joueur joueurCourant;
-    
+    Grille grilleJeu = new Grille();
     
     /**
      * Creates new form fenetreDeJeu
@@ -23,15 +23,8 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         initComponents();
         //panneau_info_joueurs.setVisible(false);
         panneau_info_partie.setVisible(false);
-        Grille grilleJeu = new Grille();
         
-        for (int i = 4 ; i>= 0 ; i--) {
-            for (int j=0 ; j<5 ; j++){
-                Pion pionJeu = new Pion(null,false);
-                grilleJeu.ajouterPion(pionJeu,i,j);
-                panneau_grille.add(pionJeu);
-            }
-        }
+        
         
     }
 
@@ -422,7 +415,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         Carte [] TabCartes = {cboar,ccobra,ccrab,ccrane,cdragon,ceel,celephant,
             cgoose,chorse,cmantis,cmonkey,cox,crabbit,crooster,ctiger};
  
-        
+        /*
         Carte [] CarteJeu = new Carte[5];
         Random r = new Random();
         boolean test = false ;
@@ -439,6 +432,14 @@ public class fenetreDeJeu extends javax.swing.JFrame {
                 }
             }
             while (test==true);
+        }*/
+    }
+    
+    
+    public void placerPion(){
+        for (int i=0 ; i<5 ; i++){
+            grilleJeu.tabPion[0][i].couleur="bleu";
+            grilleJeu.tabPion[4][i].couleur="rouge";
         }
     }
     
@@ -458,7 +459,16 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         jLabelC1.setText(j1.couleur);
         jLabelC2.setText(j2.couleur);
         
+        for (int i = 4 ; i>= 0 ; i--) {
+            for (int j=0 ; j<5 ; j++){
+                Pion pionJeu = new Pion(null,false);
+                grilleJeu.ajouterPion(pionJeu,i,j);
+                panneau_grille.add(pionJeu);
+            }
+        }
+        placerPion() ;
         creationCartes();
+        panneau_grille.repaint();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
