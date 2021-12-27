@@ -23,10 +23,12 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         initComponents();
         //panneau_info_joueurs.setVisible(false);
         panneau_info_partie.setVisible(false);
+        Grille grilleJeu = new Grille();
         
         for (int i = 4 ; i>= 0 ; i--) {
             for (int j=0 ; j<5 ; j++){
                 Pion pionJeu = new Pion(null,false);
+                grilleJeu.ajouterPion(pionJeu,i,j);
                 panneau_grille.add(pionJeu);
             }
         }

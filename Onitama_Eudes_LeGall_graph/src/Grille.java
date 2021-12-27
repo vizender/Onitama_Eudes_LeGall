@@ -19,4 +19,8 @@ public class Grille {
             }
         }
     }
+    
+    public void ajouterPion(Pion pion,int i,int j){
+        grille[i][j]=pion ;
+    }
 }
