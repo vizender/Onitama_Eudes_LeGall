@@ -191,18 +191,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         getContentPane().add(panneau_info_partie, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 350, 550));
 
         panneau_carte6.setBackground(new java.awt.Color(240, 230, 200));
-
-        javax.swing.GroupLayout panneau_carte6Layout = new javax.swing.GroupLayout(panneau_carte6);
-        panneau_carte6.setLayout(panneau_carte6Layout);
-        panneau_carte6Layout.setHorizontalGroup(
-            panneau_carte6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
-        panneau_carte6Layout.setVerticalGroup(
-            panneau_carte6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 174, Short.MAX_VALUE)
-        );
-
+        panneau_carte6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(panneau_carte6, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 610, -1, -1));
 
         panneau_carte7.setBackground(new java.awt.Color(240, 230, 200));
@@ -347,7 +336,27 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         
         int[][] coordtiger = {{2,0},{2,3}};
         Carte ctiger = new Carte("tiger" ,coordtiger) ;
-        
+              
+        Carte [] TabCartes = {cboar,ccobra,ccrab,ccrane,cdragon,ceel,celephant,
+            cgoose,chorse,cmantis,cmonkey,cox,crabbit,crooster,ctiger};
+ 
+        /*
+        Carte [] CarteJeu = new Carte[5];
+        Random r = new Random();
+        boolean test = false ;
+        for (int i=0 ; i<5 ; i++){
+            do{
+                int R = r.nextInt(16);
+                test=false;
+                CarteJeu[i] = TabCartes[R];
+                for (int j=0 ; j<5 ; j++){
+                    if (CarteJeu[i]!=TabCartes[j]){
+                        test=true;
+                        break;
+            }}}
+            while (test==true);
+        }
+        for (int m=0 ; m<5 ; m++) System.out.println(CarteJeu[m]); */
     }
     
     public void initialiserPartie() {
@@ -366,6 +375,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         jLabelC1.setText(j1.couleur);
         jLabelC2.setText(j2.couleur);
         
+        creationCartes();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

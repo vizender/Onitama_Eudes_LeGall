@@ -11,6 +11,7 @@ public class Joueur {
     //Un joueur a un nom, et un couleur
     String nom;
     String couleur;
+    Carte [] cartes;
     
     //Quand on creer un joueur, il lui faut un nom
     public Joueur (String name){
@@ -32,5 +33,7 @@ public class Joueur {
         }
         return "erreur";
     }
+    
+    
     
 }
