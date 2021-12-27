@@ -60,6 +60,5 @@ public class Pion extends JButton {
     public void paintComponent ( Graphics G) {
         super.paintComponent(G);
         setIcon(img_vide);
-        
     }
 }
