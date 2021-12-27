@@ -26,7 +26,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         
         for (int i = 4 ; i>= 0 ; i--) {
             for (int j=0 ; j<5 ; j++){
-                Pion pionJeu = new Pion(null);
+                Pion pionJeu = new Pion(null,false);
                 panneau_grille.add(pionJeu);
             }
         }
