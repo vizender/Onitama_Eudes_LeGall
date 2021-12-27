@@ -11,7 +11,7 @@ import javax.swing.JLabel;
  *
  * @author victorlegall
  */
-public class Carte extends JLabel {
+public class Carte extends JButton {
     
     ImageIcon carte_boar = new javax.swing.ImageIcon(getClass().getResource("/cartes/boar.png"));
     ImageIcon carte_cobra = new javax.swing.ImageIcon(getClass().getResource("/cartes/cobra.png"));
@@ -36,7 +36,7 @@ public class Carte extends JLabel {
     // On creer une grille de booleens, false si on ne peut pas joueur la sur la position de la grille, true si on peut joueur cette position
     boolean [][] grilleCarte = new boolean[5][5];
     
-    static HashMap h = new HashMap();
+    static HashMap h = new HashMap(); // On creer un hashage dans lequel les images 
     
     //On initialise la carte a false partout
     public Carte(String nom, int [][] tabCoords){
