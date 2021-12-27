@@ -426,7 +426,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         boolean test = false ;
         for (int i=0 ; i<5 ; i++){
             do{
-                int R = r.nextInt(16);
+                int R = r.nextInt(15);
                 test=false;
                 CarteJeu[i] = TabCartes[R];
                 for (int j=0 ; j<5 ; j++){
@@ -438,7 +438,6 @@ public class fenetreDeJeu extends javax.swing.JFrame {
             }
             while (test==true);
         }
-        for (int m=0 ; m<5 ; m++) System.out.println(CarteJeu[m]);
     }
     
     public void initialiserPartie() {
