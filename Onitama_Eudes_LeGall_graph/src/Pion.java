@@ -27,9 +27,11 @@ public class Pion extends JButton {
     
     String couleur;
     String type;
+    boolean roi;
     
-    public Pion(String color){
+    public Pion(String color, boolean king){
         couleur = color;
+        roi=king;
     }
     
     String demanderCouleur(){
