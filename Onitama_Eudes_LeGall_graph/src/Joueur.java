@@ -11,7 +11,7 @@ public class Joueur {
     //Un joueur a un nom, et un couleur
     String nom;
     String couleur;
-    Carte [] cartes;
+    Carte [] cartes = new Carte[2];
     
     //Quand on creer un joueur, il lui faut un nom
     public Joueur (String name){
