@@ -69,7 +69,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
 
         panneau_grille.setBackground(new java.awt.Color(240, 230, 230));
         panneau_grille.setLayout(new java.awt.GridLayout(5, 5));
-        getContentPane().add(panneau_grille, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 200, 400, 400));
+        getContentPane().add(panneau_grille, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 200, 400, 400));
 
         panneau_info_joueurs.setBackground(new java.awt.Color(240, 200, 180));
         panneau_info_joueurs.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -117,13 +117,13 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         panneau_info_partie.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
         jLabelC1.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
-        panneau_info_partie.add(jLabelC1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 140, -1, -1));
+        panneau_info_partie.add(jLabelC1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 110, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         panneau_info_partie.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 140, -1, -1));
 
         jSeparator1.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
-        panneau_info_partie.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 290, 10));
+        panneau_info_partie.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 290, 10));
 
         jLabelJ1.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         panneau_info_partie.add(jLabelJ1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 80, -1, -1));
@@ -137,24 +137,24 @@ public class fenetreDeJeu extends javax.swing.JFrame {
 
         jLabelC2.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         jLabelC2.setText(" ");
-        panneau_info_partie.add(jLabelC2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 310, -1, -1));
+        panneau_info_partie.add(jLabelC2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 190, -1, -1));
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         jLabel11.setText("Couleur");
-        panneau_info_partie.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, -1, -1));
+        panneau_info_partie.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, -1, -1));
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         jLabel12.setText("Joueur 2");
-        panneau_info_partie.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, -1, -1));
+        panneau_info_partie.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, -1, -1));
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         jLabel13.setText("Couleur");
-        panneau_info_partie.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, -1, -1));
+        panneau_info_partie.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, -1, -1));
 
         jLabelJ2.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
-        panneau_info_partie.add(jLabelJ2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 240, -1, -1));
+        panneau_info_partie.add(jLabelJ2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, -1, -1));
 
-        getContentPane().add(panneau_info_partie, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 350, 550));
+        getContentPane().add(panneau_info_partie, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 550, 350, 230));
 
         panneau_carte6.setBackground(new java.awt.Color(240, 230, 200));
         panneau_carte6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -170,7 +170,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
 
         j2_carte1.setBackground(new java.awt.Color(240, 230, 200));
         j2_carte1.setLayout(new java.awt.GridLayout(1, 1));
-        getContentPane().add(j2_carte1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 10, 300, 174));
+        getContentPane().add(j2_carte1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 10, 300, 174));
 
         j1_carte1.setBackground(new java.awt.Color(240, 230, 200));
         j1_carte1.setLayout(new java.awt.GridLayout(1, 1));
@@ -178,7 +178,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
 
         att_carte.setBackground(new java.awt.Color(240, 230, 200));
         att_carte.setLayout(new java.awt.GridLayout(1, 1));
-        getContentPane().add(att_carte, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 290, 300, 174));
+        getContentPane().add(att_carte, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 320, 300, 174));
 
         setBounds(0, 0, 1075, 831);
     }// </editor-fold>//GEN-END:initComponents
