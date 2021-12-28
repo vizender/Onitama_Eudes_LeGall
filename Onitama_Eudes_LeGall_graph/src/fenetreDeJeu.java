@@ -6,16 +6,17 @@ import java.util.Scanner;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-
 /**
  *
  * @author victorlegall
  */
 public class fenetreDeJeu extends javax.swing.JFrame {
+
     Joueur[] ListeJoueurs = new Joueur[2];
     Joueur joueurCourant;
     Grille grilleJeu = new Grille();
-    
+    Pion pionCourant;
+
     /**
      * Creates new form fenetreDeJeu
      */
@@ -23,9 +24,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         initComponents();
         //panneau_info_joueurs.setVisible(false);
         panneau_info_partie.setVisible(false);
-        
-        
-        
+
     }
 
     /**
@@ -185,7 +184,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
 
     private void nom_joueur1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nom_joueur1ActionPerformed
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_nom_joueur1ActionPerformed
 
     private void nom_joueur2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nom_joueur2ActionPerformed
@@ -198,6 +197,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         panneau_info_partie.setVisible(true);
         initialiserPartie();
         attribuerCouleurAuxJoueurs();
+        System.out.println("1er repaint");
         panneau_grille.repaint();
     }//GEN-LAST:event_jbt_startActionPerformed
 
@@ -235,6 +235,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
             }
         });
     }
+
     public void attribuerCouleurAuxJoueurs() {
         Random r = new Random();
         int R = r.nextInt(2); // on créé ici un entier aléatoire entre 0 et 1
@@ -246,130 +247,145 @@ public class fenetreDeJeu extends javax.swing.JFrame {
             ListeJoueurs[0].affecterCouleur("bleu"); // on affecte des couleurs aux joueurs en fonction du chiffre aléatoire
         }
     }
-    public void creationCartes(){
-        
-        int[][] coordboar = {{2,1},{1,2},{2,3}};
-        Carte cboar = new Carte("boar",coordboar) ;
-        
-        int[][] coordcobra = {{2,1},{1,3},{3,3}};
-        Carte ccobra = new Carte("cobra",coordcobra) ;
-        
-        int[][] coordcrab = {{2,0},{1,2},{2,4}};
-        Carte ccrab = new Carte("crab",coordcrab) ;
-        
-        int[][] coordcrane = {{3,1},{2,1},{3,3}};
-        Carte ccrane = new Carte("crane",coordcrane) ;
-        
-        int[][] coorddragon = {{0,1},{1,3},{3,3},{4,1}};
-        Carte cdragon = new Carte("dragon",coorddragon) ;
-        
-        int[][] coordeel = {{1,1},{1,3},{3,2}};
-        Carte ceel = new Carte("eel",coordeel) ;
-        
-        int[][] coordelephant = {{1,1},{1,2},{3,1},{3,2}};
-        Carte celephant = new Carte("elephant",coordelephant) ;
-        
-        int[][] coordgoose = {{1,1},{1,2},{3,2},{3,3}};
-        Carte cgoose = new Carte("goose",coordgoose) ;
-        
-        int[][] coordhorse = {{1,2},{2,1},{2,3}};
-        Carte chorse = new Carte("horse",coordhorse) ;
-        
-        int[][] coordmantis = {{1,1},{2,3},{3,1}};
-        Carte cmantis = new Carte("mantis",coordmantis) ;
-        
-        int[][] coordmonkey = {{1,1},{1,3},{3,1},{3,3}};
-        Carte cmonkey = new Carte("monkey",coordmonkey) ;
-        
-        int[][] coordox = {{2,1},{3,2},{2,3}};
-        Carte cox = new Carte("ox",coordox) ;
-        
-        int[][] coordrabbit = {{1,3},{3,1},{4,2}};
-        Carte crabbit = new Carte("rabbit",coordrabbit) ;
-        
-        int[][] coordrooster = {{1,2},{1,3},{3,1},{3,2}};
-        Carte crooster = new Carte("rooster", coordrooster) ;
-        
-        int[][] coordtiger = {{2,0},{2,3}};
-        Carte ctiger = new Carte("tiger" ,coordtiger) ;
-              
-        Carte [] TabCartes = {cboar,ccobra,ccrab,ccrane,cdragon,ceel,celephant,
-            cgoose,chorse,cmantis,cmonkey,cox,crabbit,crooster,ctiger};
- 
-        
-        Carte [] CarteJeu = new Carte[5];
+
+    public void creationCartes() {
+
+        int[][] coordboar = {{2, 1}, {1, 2}, {2, 3}};
+        Carte cboar = new Carte("boar", coordboar);
+
+        int[][] coordcobra = {{2, 1}, {1, 3}, {3, 3}};
+        Carte ccobra = new Carte("cobra", coordcobra);
+
+        int[][] coordcrab = {{2, 0}, {1, 2}, {2, 4}};
+        Carte ccrab = new Carte("crab", coordcrab);
+
+        int[][] coordcrane = {{3, 1}, {2, 1}, {3, 3}};
+        Carte ccrane = new Carte("crane", coordcrane);
+
+        int[][] coorddragon = {{0, 1}, {1, 3}, {3, 3}, {4, 1}};
+        Carte cdragon = new Carte("dragon", coorddragon);
+
+        int[][] coordeel = {{1, 1}, {1, 3}, {3, 2}};
+        Carte ceel = new Carte("eel", coordeel);
+
+        int[][] coordelephant = {{1, 1}, {1, 2}, {3, 1}, {3, 2}};
+        Carte celephant = new Carte("elephant", coordelephant);
+
+        int[][] coordgoose = {{1, 1}, {1, 2}, {3, 2}, {3, 3}};
+        Carte cgoose = new Carte("goose", coordgoose);
+
+        int[][] coordhorse = {{1, 2}, {2, 1}, {2, 3}};
+        Carte chorse = new Carte("horse", coordhorse);
+
+        int[][] coordmantis = {{1, 1}, {2, 3}, {3, 1}};
+        Carte cmantis = new Carte("mantis", coordmantis);
+
+        int[][] coordmonkey = {{1, 1}, {1, 3}, {3, 1}, {3, 3}};
+        Carte cmonkey = new Carte("monkey", coordmonkey);
+
+        int[][] coordox = {{2, 1}, {3, 2}, {2, 3}};
+        Carte cox = new Carte("ox", coordox);
+
+        int[][] coordrabbit = {{1, 3}, {3, 1}, {4, 2}};
+        Carte crabbit = new Carte("rabbit", coordrabbit);
+
+        int[][] coordrooster = {{1, 2}, {1, 3}, {3, 1}, {3, 2}};
+        Carte crooster = new Carte("rooster", coordrooster);
+
+        int[][] coordtiger = {{2, 0}, {2, 3}};
+        Carte ctiger = new Carte("tiger", coordtiger);
+
+        Carte[] TabCartes = {cboar, ccobra, ccrab, ccrane, cdragon, ceel, celephant,
+            cgoose, chorse, cmantis, cmonkey, cox, crabbit, crooster, ctiger};
+
+        Carte[] CarteJeu = new Carte[5];
         Random r = new Random();
         boolean test;
-        for (int i=0 ; i<5 ; i++){
-            do{
+        for (int i = 0; i < 5; i++) {
+            do {
                 int R = r.nextInt(15);
-                test=false;
+                test = false;
                 CarteJeu[i] = TabCartes[R];
-                for (int j=0 ; j<i ; j++){
-                    if (CarteJeu[i].nom==CarteJeu[j].nom){
-                        test=true;
+                for (int j = 0; j < i; j++) {
+                    if (CarteJeu[i].nom == CarteJeu[j].nom) {
+                        test = true;
                         break;
                     }
                 }
-            }
-            while (test==true);
+            } while (test == true);
         }
-        
+
         j1_carte1.add(CarteJeu[0]);
         j1_carte2.add(CarteJeu[1]);
         j2_carte1.add(CarteJeu[2]);
         j2_carte2.add(CarteJeu[3]);
         att_carte.add(CarteJeu[4]);
-        
-        
-        System.out.println(CarteJeu[0].nom);
-        System.out.println(CarteJeu[1].nom);
-        System.out.println(CarteJeu[2].nom);
-        System.out.println(CarteJeu[3].nom);
-        System.out.println(CarteJeu[4].nom);
-        
+
         j1_carte1.repaint();
         j1_carte2.repaint();
         j1_carte2.repaint();
         j2_carte2.repaint();
         att_carte.repaint();
     }
-    
-    public void placerPion(){
-        for (int i=0 ; i<5 ; i++){
-            grilleJeu.tabPion[0][i].couleur="bleu";
-            grilleJeu.tabPion[4][i].couleur="rouge";
-            grilleJeu.tabPion[0][2].roi=true ;
-            grilleJeu.tabPion[4][2].roi=true ;
+
+    public void placerPion() {
+        for (int i = 0; i < 5; i++) {
+            grilleJeu.tabPion[0][i].couleur = "bleu";
+            grilleJeu.tabPion[4][i].couleur = "rouge";
+            grilleJeu.tabPion[0][2].roi = true;
+            grilleJeu.tabPion[4][2].roi = true;
         }
     }
-    
+
     public void initialiserPartie() {
-        
+
         String nomJoueur1 = nom_joueur1.getText();
         Joueur j1 = new Joueur(nomJoueur1);
         String nomJoueur2 = nom_joueur2.getText();
         Joueur j2 = new Joueur(nomJoueur2);
         ListeJoueurs[0] = j1;
         ListeJoueurs[1] = j2;
-        
+
         this.attribuerCouleurAuxJoueurs();
 
         jLabelJ1.setText(nomJoueur1);
         jLabelJ2.setText(nomJoueur2);
         jLabelC1.setText(j1.couleur);
         jLabelC2.setText(j2.couleur);
-        
-        for (int i = 4 ; i>= 0 ; i--) {
-            for (int j=0 ; j<5 ; j++){
-                Pion pionJeu = new Pion(null,false);
-                grilleJeu.ajouterPion(pionJeu,i,j);
+
+        for (int i = 4; i >= 0; i--) {
+            for (int j = 0; j < 5; j++) {
+                Pion pionJeu = new Pion(null, false);
+                grilleJeu.ajouterPion(pionJeu, i, j);
+
+                pionJeu.addActionListener(new java.awt.event.ActionListener() {
+                    public void actionPerformed(java.awt.event.ActionEvent evt) {
+                        if (pionCourant.couleur == joueurCourant.couleur) {
+                            do {
+
+                            } while (pionCourant.couleur != joueurCourant.couleur) ;
+                        }
+                    }
+                });
+
                 panneau_grille.add(pionJeu);
             }
         }
+        //System.out.println(pionCourant.couleur);
         placerPion();
-        creationCartes();        
+        creationCartes();
+
     }
+    /*
+    public void debuterPartie(){
+        do{
+            if (pionCourant.couleur==joueurCourant.couleur){
+                do{
+                    
+                }while(pionCourant.couleur=!joueurCourant.couleur)
+            }
+        }while(1==1) ; //condition de victoire
+    }*/
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel att_carte;

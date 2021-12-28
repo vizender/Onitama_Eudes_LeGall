@@ -3,16 +3,19 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.geom.AffineTransform;
 import java.util.HashMap;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+
 /**
  *
  * @author victorlegall
  */
 public class Carte extends JButton {
-    
+
     //On ajoute toutes les images
     ImageIcon carte_boar = new javax.swing.ImageIcon(getClass().getResource("/cartes/boar.jpg"));
     ImageIcon carte_cobra = new javax.swing.ImageIcon(getClass().getResource("/cartes/cobra.jpg"));
@@ -30,22 +33,21 @@ public class Carte extends JButton {
     ImageIcon carte_rabbit = new javax.swing.ImageIcon(getClass().getResource("/cartes/rabbit.jpg"));
     ImageIcon carte_rooster = new javax.swing.ImageIcon(getClass().getResource("/cartes/rooster.jpg"));
     ImageIcon carte_tiger = new javax.swing.ImageIcon(getClass().getResource("/cartes/tiger.jpg"));
-    
+
     String nom;
-    
-    
+
     // On creer une grille de booleens, false si on ne peut pas joueur la sur la position de la grille, true si on peut joueur cette position
-    boolean [][] grilleCarte = new boolean[5][5];
-    
+    boolean[][] grilleCarte = new boolean[5][5];
+
     static HashMap h = new HashMap(); // On creer un hashage dans lequel les images 
-    
+
     //On initialise la carte a false partout
-    public Carte(String Nom, int [][] tabCoords){
-        nom=Nom;
-        for (int i=0; i<tabCoords.length; i++){
-            int x=tabCoords[i][0];
-            int y=tabCoords[i][1];
-            grilleCarte[x][y]=true;
+    public Carte(String Nom, int[][] tabCoords) {
+        nom = Nom;
+        for (int i = 0; i < tabCoords.length; i++) {
+            int x = tabCoords[i][0];
+            int y = tabCoords[i][1];
+            grilleCarte[x][y] = true;
         }
         h.put("boar", carte_boar);
         h.put("cobra", carte_crab);
@@ -64,16 +66,39 @@ public class Carte extends JButton {
         h.put("rooster", carte_rooster);
         h.put("tiger", carte_tiger);
     }
-    
-    
+
     //Affichage des cartes via le hashage, on apelle le nom de la carte, qui est la clef correspondante a l'img de la carte
     @Override
-    public void  paintComponent ( Graphics G) {
+    public void paintComponent(Graphics G) {
         ImageIcon result = (ImageIcon) h.get(nom);
         super.paintComponent(G);
+        //G.rotate(Math.PI/2);
+        setIcon(result);
+        /*    
+    AffineTransform rotation = new AffineTransform();
+    rotation = rotation.getRotateInstance(-Math.PI / 2,(int)(result.getWidth(null)/2),(int)(result.getHeight(null)/2));
+    g2d.drawImage(imagePlayer, rotation, null);
+    }*/
+ /*
+    @Override
+    public void paintComponent(Graphics g) {
+        ImageIcon result = (ImageIcon) h.get(nom);
+        Graphics2D G = (Graphics2D)g;
+        super.paintComponent(G);
         setIcon(result); 
-    }
+        G.drawString(nom, 1, 1);
+        G.rotate(Math.PI/2);
     
+    }*/
+ /*
+        @Override
+    public void paintComponent(Graphics g) {
+        Graphics2D g2d = (Graphics2D) g;
+        int w2 = getWidth() / 2;
+        int h2 = getHeight() / 2;
+        g2d.rotate(-Math.PI / 2, w2, h2);
+        super.paintComponent(g);
+    }*/
+
+    }
 }
-
-
