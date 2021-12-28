@@ -38,10 +38,6 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     private void initComponents() {
 
         panneau_grille = new javax.swing.JPanel();
-        j1_carte2 = new javax.swing.JPanel();
-        btn_j1_carte2 = new javax.swing.JButton();
-        att_carte = new javax.swing.JPanel();
-        btn_att_carte = new javax.swing.JButton();
         panneau_info_joueurs = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -62,12 +58,11 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         jLabelJ2 = new javax.swing.JLabel();
         panneau_carte6 = new javax.swing.JPanel();
+        j1_carte2 = new javax.swing.JPanel();
         j2_carte2 = new javax.swing.JPanel();
-        btn_j2_carte2 = new javax.swing.JButton();
         j2_carte1 = new javax.swing.JPanel();
-        btn_j2_carte1 = new javax.swing.JButton();
         j1_carte1 = new javax.swing.JPanel();
-        btn_j1_carte1 = new javax.swing.JButton();
+        att_carte = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -75,48 +70,6 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         panneau_grille.setBackground(new java.awt.Color(240, 230, 230));
         panneau_grille.setLayout(new java.awt.GridLayout(5, 5));
         getContentPane().add(panneau_grille, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 200, 400, 400));
-
-        j1_carte2.setBackground(new java.awt.Color(240, 230, 200));
-
-        btn_j1_carte2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_j1_carte2ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout j1_carte2Layout = new javax.swing.GroupLayout(j1_carte2);
-        j1_carte2.setLayout(j1_carte2Layout);
-        j1_carte2Layout.setHorizontalGroup(
-            j1_carte2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btn_j1_carte2, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
-        );
-        j1_carte2Layout.setVerticalGroup(
-            j1_carte2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btn_j1_carte2, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
-        );
-
-        getContentPane().add(j1_carte2, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 610, 300, 174));
-
-        att_carte.setBackground(new java.awt.Color(240, 230, 200));
-
-        btn_att_carte.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_att_carteActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout att_carteLayout = new javax.swing.GroupLayout(att_carte);
-        att_carte.setLayout(att_carteLayout);
-        att_carteLayout.setHorizontalGroup(
-            att_carteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btn_att_carte, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
-        );
-        att_carteLayout.setVerticalGroup(
-            att_carteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btn_att_carte, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
-        );
-
-        getContentPane().add(att_carte, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 230, 174, 300));
 
         panneau_info_joueurs.setBackground(new java.awt.Color(240, 200, 180));
         panneau_info_joueurs.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -207,75 +160,27 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         panneau_carte6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(panneau_carte6, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 610, -1, -1));
 
+        j1_carte2.setBackground(new java.awt.Color(240, 230, 200));
+        j1_carte2.setLayout(new java.awt.GridLayout(1, 1));
+        getContentPane().add(j1_carte2, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 610, 300, 174));
+
         j2_carte2.setBackground(new java.awt.Color(240, 230, 200));
-
-        btn_j2_carte2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_j2_carte2ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout j2_carte2Layout = new javax.swing.GroupLayout(j2_carte2);
-        j2_carte2.setLayout(j2_carte2Layout);
-        j2_carte2Layout.setHorizontalGroup(
-            j2_carte2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btn_j2_carte2, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
-        );
-        j2_carte2Layout.setVerticalGroup(
-            j2_carte2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btn_j2_carte2, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
-        );
-
-        getContentPane().add(j2_carte2, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 10, -1, -1));
+        j2_carte2.setLayout(new java.awt.GridLayout(1, 1));
+        getContentPane().add(j2_carte2, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 10, 300, 174));
 
         j2_carte1.setBackground(new java.awt.Color(240, 230, 200));
-        j2_carte1.addComponentListener(new java.awt.event.ComponentAdapter() {
-            public void componentMoved(java.awt.event.ComponentEvent evt) {
-                j2_carte1ComponentMoved(evt);
-            }
-        });
-
-        btn_j2_carte1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_j2_carte1ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout j2_carte1Layout = new javax.swing.GroupLayout(j2_carte1);
-        j2_carte1.setLayout(j2_carte1Layout);
-        j2_carte1Layout.setHorizontalGroup(
-            j2_carte1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btn_j2_carte1, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
-        );
-        j2_carte1Layout.setVerticalGroup(
-            j2_carte1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btn_j2_carte1, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
-        );
-
-        getContentPane().add(j2_carte1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 10, -1, -1));
+        j2_carte1.setLayout(new java.awt.GridLayout(1, 1));
+        getContentPane().add(j2_carte1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 10, 300, 174));
 
         j1_carte1.setBackground(new java.awt.Color(240, 230, 200));
-
-        btn_j1_carte1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_j1_carte1ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout j1_carte1Layout = new javax.swing.GroupLayout(j1_carte1);
-        j1_carte1.setLayout(j1_carte1Layout);
-        j1_carte1Layout.setHorizontalGroup(
-            j1_carte1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btn_j1_carte1, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
-        );
-        j1_carte1Layout.setVerticalGroup(
-            j1_carte1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btn_j1_carte1, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
-        );
-
+        j1_carte1.setLayout(new java.awt.GridLayout(1, 1));
         getContentPane().add(j1_carte1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 610, 300, 174));
 
-        setBounds(0, 0, 1065, 831);
+        att_carte.setBackground(new java.awt.Color(240, 230, 200));
+        att_carte.setLayout(new java.awt.GridLayout(1, 1));
+        getContentPane().add(att_carte, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 290, 300, 174));
+
+        setBounds(0, 0, 1075, 831);
     }// </editor-fold>//GEN-END:initComponents
 
     private void nom_joueur1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nom_joueur1ActionPerformed
@@ -295,30 +200,6 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         attribuerCouleurAuxJoueurs();
         panneau_grille.repaint();
     }//GEN-LAST:event_jbt_startActionPerformed
-
-    private void j2_carte1ComponentMoved(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_j2_carte1ComponentMoved
-        // TODO add your handling code here:
-    }//GEN-LAST:event_j2_carte1ComponentMoved
-
-    private void btn_j2_carte1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_j2_carte1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_j2_carte1ActionPerformed
-
-    private void btn_j2_carte2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_j2_carte2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_j2_carte2ActionPerformed
-
-    private void btn_att_carteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_att_carteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_att_carteActionPerformed
-
-    private void btn_j1_carte2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_j1_carte2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_j1_carte2ActionPerformed
-
-    private void btn_j1_carte1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_j1_carte1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_j1_carte1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -424,27 +305,44 @@ public class fenetreDeJeu extends javax.swing.JFrame {
                 int R = r.nextInt(15);
                 test=false;
                 CarteJeu[i] = TabCartes[R];
-                for (int j=0 ; j<5 ; j++){
-                    if (CarteJeu[i]!=TabCartes[j]){
+                for (int j=0 ; j<i ; j++){
+                    if (CarteJeu[i].nom==TabCartes[j].nom){
+                        System.out.println(CarteJeu[i].nom +" "+ TabCartes[j].nom + j);
+                        System.out.println("test true");
                         test=true;
                         break;
                     }
                 }
             }
-            while (test==false);
+            while (test==true);
         }
+        
         j1_carte1.add(CarteJeu[0]);
         j1_carte2.add(CarteJeu[1]);
         j2_carte1.add(CarteJeu[2]);
         j2_carte2.add(CarteJeu[3]);
         att_carte.add(CarteJeu[4]);
-       
+        
+        
+        System.out.println(CarteJeu[0].nom);
+        System.out.println(CarteJeu[1].nom);
+        System.out.println(CarteJeu[2].nom);
+        System.out.println(CarteJeu[3].nom);
+        System.out.println(CarteJeu[4].nom);
+        
+        j1_carte1.repaint();
+        j1_carte2.repaint();
+        j1_carte2.repaint();
+        j2_carte2.repaint();
+        att_carte.repaint();
     }
     
     public void placerPion(){
         for (int i=0 ; i<5 ; i++){
             grilleJeu.tabPion[0][i].couleur="bleu";
             grilleJeu.tabPion[4][i].couleur="rouge";
+            grilleJeu.tabPion[0][2].roi=true ;
+            grilleJeu.tabPion[4][2].roi=true ;
         }
     }
     
@@ -471,18 +369,12 @@ public class fenetreDeJeu extends javax.swing.JFrame {
                 panneau_grille.add(pionJeu);
             }
         }
-
-        creationCartes();
-        panneau_grille.repaint();
+        placerPion();
+        creationCartes();        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel att_carte;
-    private javax.swing.JButton btn_att_carte;
-    private javax.swing.JButton btn_j1_carte1;
-    private javax.swing.JButton btn_j1_carte2;
-    private javax.swing.JButton btn_j2_carte1;
-    private javax.swing.JButton btn_j2_carte2;
     private javax.swing.JPanel j1_carte1;
     private javax.swing.JPanel j1_carte2;
     private javax.swing.JPanel j2_carte1;

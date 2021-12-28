@@ -40,7 +40,8 @@ public class Carte extends JButton {
     static HashMap h = new HashMap(); // On creer un hashage dans lequel les images 
     
     //On initialise la carte a false partout
-    public Carte(String nom, int [][] tabCoords){
+    public Carte(String Nom, int [][] tabCoords){
+        nom=Nom;
         for (int i=0; i<tabCoords.length; i++){
             int x=tabCoords[i][0];
             int y=tabCoords[i][1];
