@@ -25,6 +25,26 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         //panneau_info_joueurs.setVisible(false);
         panneau_info_partie.setVisible(false);
 
+        for (int i = 4; i >= 0; i--) {
+            for (int j = 0; j < 5; j++) {
+                Pion pionJeu = new Pion(null, false, i, j);
+                grilleJeu.ajouterPion(pionJeu, i, j);
+
+                pionJeu.addActionListener(new java.awt.event.ActionListener() {
+                    public void actionPerformed(java.awt.event.ActionEvent evt) {
+                        if (grilleJeu.pionSelect[0] == 5) {
+                            if (pionJeu.couleur == joueurCourant.couleur) {
+                                grilleJeu.selectPion();
+                                System.out.println();
+                            }
+                        }
+                    }
+                });
+
+                panneau_grille.add(pionJeu);
+            }
+        }
+
     }
 
     /**
@@ -242,87 +262,89 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         if (R == 0) {
             ListeJoueurs[0].affecterCouleur("rouge");
             ListeJoueurs[1].affecterCouleur("bleu");
+            joueurCourant = ListeJoueurs[0];
         } else {
             ListeJoueurs[1].affecterCouleur("rouge");
             ListeJoueurs[0].affecterCouleur("bleu"); // on affecte des couleurs aux joueurs en fonction du chiffre aléatoire
+            joueurCourant = ListeJoueurs[1];
         }
     }
-    
+
     //Void pour creer et distribuer 5 cartes de jeu au debut de la partie
-    public void creationCartes(){
-        
+    public void creationCartes() {
+
         //On definit toutes les cartes, avec les coordonées jouables relatives au pion, et le nom.
-        int[][] coordboar = {{2,1},{1,2},{2,3}};
-        Carte cboar = new Carte("boar",coordboar) ;
-        
-        int[][] coordcobra = {{2,1},{1,3},{3,3}};
-        Carte ccobra = new Carte("cobra",coordcobra) ;
-        
-        int[][] coordcrab = {{2,0},{1,2},{2,4}};
-        Carte ccrab = new Carte("crab",coordcrab) ;
-        
-        int[][] coordcrane = {{3,1},{2,1},{3,3}};
-        Carte ccrane = new Carte("crane",coordcrane) ;
-        
-        int[][] coorddragon = {{0,1},{1,3},{3,3},{4,1}};
-        Carte cdragon = new Carte("dragon",coorddragon) ;
-        
-        int[][] coordeel = {{1,1},{1,3},{3,2}};
-        Carte ceel = new Carte("eel",coordeel) ;
-        
-        int[][] coordelephant = {{1,1},{1,2},{3,1},{3,2}};
-        Carte celephant = new Carte("elephant",coordelephant) ;
-        
-        int[][] coordgoose = {{1,1},{1,2},{3,2},{3,3}};
-        Carte cgoose = new Carte("goose",coordgoose) ;
-        
-        int[][] coordhorse = {{1,2},{2,1},{2,3}};
-        Carte chorse = new Carte("horse",coordhorse) ;
-        
-        int[][] coordmantis = {{1,1},{2,3},{3,1}};
-        Carte cmantis = new Carte("mantis",coordmantis) ;
-        
-        int[][] coordmonkey = {{1,1},{1,3},{3,1},{3,3}};
-        Carte cmonkey = new Carte("monkey",coordmonkey) ;
-        
-        int[][] coordox = {{2,1},{3,2},{2,3}};
-        Carte cox = new Carte("ox",coordox) ;
-        
-        int[][] coordrabbit = {{1,3},{3,1},{4,2}};
-        Carte crabbit = new Carte("rabbit",coordrabbit) ;
-        
-        int[][] coordrooster = {{1,2},{1,3},{3,1},{3,2}};
-        Carte crooster = new Carte("rooster", coordrooster) ;
-        
-        int[][] coordtiger = {{2,0},{2,3}};
-        Carte ctiger = new Carte("tiger" ,coordtiger) ;
-              
+        int[][] coordboar = {{2, 1}, {1, 2}, {2, 3}};
+        Carte cboar = new Carte("boar", coordboar);
+
+        int[][] coordcobra = {{2, 1}, {1, 3}, {3, 3}};
+        Carte ccobra = new Carte("cobra", coordcobra);
+
+        int[][] coordcrab = {{2, 0}, {1, 2}, {2, 4}};
+        Carte ccrab = new Carte("crab", coordcrab);
+
+        int[][] coordcrane = {{3, 1}, {2, 1}, {3, 3}};
+        Carte ccrane = new Carte("crane", coordcrane);
+
+        int[][] coorddragon = {{0, 1}, {1, 3}, {3, 3}, {4, 1}};
+        Carte cdragon = new Carte("dragon", coorddragon);
+
+        int[][] coordeel = {{1, 1}, {1, 3}, {3, 2}};
+        Carte ceel = new Carte("eel", coordeel);
+
+        int[][] coordelephant = {{1, 1}, {1, 2}, {3, 1}, {3, 2}};
+        Carte celephant = new Carte("elephant", coordelephant);
+
+        int[][] coordgoose = {{1, 1}, {1, 2}, {3, 2}, {3, 3}};
+        Carte cgoose = new Carte("goose", coordgoose);
+
+        int[][] coordhorse = {{1, 2}, {2, 1}, {2, 3}};
+        Carte chorse = new Carte("horse", coordhorse);
+
+        int[][] coordmantis = {{1, 1}, {2, 3}, {3, 1}};
+        Carte cmantis = new Carte("mantis", coordmantis);
+
+        int[][] coordmonkey = {{1, 1}, {1, 3}, {3, 1}, {3, 3}};
+        Carte cmonkey = new Carte("monkey", coordmonkey);
+
+        int[][] coordox = {{2, 1}, {3, 2}, {2, 3}};
+        Carte cox = new Carte("ox", coordox);
+
+        int[][] coordrabbit = {{1, 3}, {3, 1}, {4, 2}};
+        Carte crabbit = new Carte("rabbit", coordrabbit);
+
+        int[][] coordrooster = {{1, 2}, {1, 3}, {3, 1}, {3, 2}};
+        Carte crooster = new Carte("rooster", coordrooster);
+
+        int[][] coordtiger = {{2, 0}, {2, 3}};
+        Carte ctiger = new Carte("tiger", coordtiger);
+
         //On mets ttes les cartes dans un tableau qu'on va ensuite piocher
-        Carte [] TabCartes = {cboar,ccobra,ccrab,ccrane,cdragon,ceel,celephant,
-            cgoose,chorse,cmantis,cmonkey,cox,crabbit,crooster,ctiger};
- 
+        Carte[] TabCartes = {cboar, ccobra, ccrab, ccrane, cdragon, ceel, celephant,
+            cgoose, chorse, cmantis, cmonkey, cox, crabbit, crooster, ctiger};
+
         //Tableau des 5 cartes utilisées dans une partie
-        Carte [] CarteJeu = new Carte[5];
+        Carte[] CarteJeu = new Carte[5];
         Random r = new Random();
         boolean test;
-        
+
         //Shenanigans pour selectionner 5 cartes au hasard sans doublons
         //PS : on ne fait pas d'operations sur le tableau des 16 cartes originels par securite, donc la fonction ci-dessous est pas belle du tout
-        for (int i=0; i<5; i++){ // On repete l'operation pour les 5 cartes
-            do{ // On repete une selection de carte tant que y'a doublons
+        for (int i = 0; i < 5; i++) { // On repete l'operation pour les 5 cartes
+            do { // On repete une selection de carte tant que y'a doublons
                 int R = r.nextInt(15); //On prends aleatoirement une des 16 cartes du tableau ci dessus
-                test=false;
-                int tot=0; // tot et test vont servir de verification aux doublons (pas tres joli mais fonctionnel)
+                test = false;
+                int tot = 0; // tot et test vont servir de verification aux doublons (pas tres joli mais fonctionnel)
                 CarteJeu[i] = TabCartes[R]; // On assinge la carte aleatoirement choisie au tableau carte de jeu
-                for (int j=0; j<i; j++){ // On verifie que y'a pas de les doublons un a un avec les precedentes cartes
-                    if (CarteJeu[i]!=CarteJeu[j]){
+                for (int j = 0; j < i; j++) { // On verifie que y'a pas de les doublons un a un avec les precedentes cartes
+                    if (CarteJeu[i] != CarteJeu[j]) {
                         tot++; // Comme on verifie un a un, on utilise tot pour confirmer que tout est bon
                     }
                 }
-                if(tot==i){
-                    test=true; // Si toutes les cartes precedentes sont bien differentes, alors on est bon
+                if (tot == i) {
+                    test = true; // Si toutes les cartes precedentes sont bien differentes, alors on est bon
                 }
-            }while (test==false); // On confirme pas de doublon, on passe a l'attribution de la carte suivante
+            } while (test == false); // On confirme pas de doublon, on passe a l'attribution de la carte suivante
         }
 
         j1_carte1.add(CarteJeu[0]);
@@ -363,24 +385,6 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         jLabelC1.setText(j1.couleur);
         jLabelC2.setText(j2.couleur);
 
-        for (int i = 4; i >= 0; i--) {
-            for (int j = 0; j < 5; j++) {
-                Pion pionJeu = new Pion(null, false);
-                grilleJeu.ajouterPion(pionJeu, i, j);
-
-                pionJeu.addActionListener(new java.awt.event.ActionListener() {
-                    public void actionPerformed(java.awt.event.ActionEvent evt) {
-                        if (pionCourant.couleur == joueurCourant.couleur) {
-                            do {
-
-                            } while (pionCourant.couleur != joueurCourant.couleur) ;
-                        }
-                    }
-                });
-
-                panneau_grille.add(pionJeu);
-            }
-        }
         //System.out.println(pionCourant.couleur);
         placerPion();
         creationCartes();
