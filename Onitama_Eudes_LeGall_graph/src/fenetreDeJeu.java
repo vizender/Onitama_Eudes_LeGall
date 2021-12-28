@@ -300,21 +300,22 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         Carte [] CarteJeu = new Carte[5];
         Random r = new Random();
         boolean test;
-        for (int i=0 ; i<5 ; i++){
+        
+        for (int i=0; i<5; i++){
             do{
                 int R = r.nextInt(15);
                 test=false;
+                int tot=0;
                 CarteJeu[i] = TabCartes[R];
-                for (int j=0 ; j<i ; j++){
-                    if (CarteJeu[i].nom==TabCartes[j].nom){
-                        System.out.println(CarteJeu[i].nom +" "+ TabCartes[j].nom + j);
-                        System.out.println("test true");
-                        test=true;
-                        break;
+                for (int j=0; j<i; j++){
+                    if (CarteJeu[i]!=CarteJeu[j]){
+                        tot++;
                     }
                 }
-            }
-            while (test==true);
+                if(tot==i){
+                    test=true;
+                }
+            }while (test==false);
         }
         
         j1_carte1.add(CarteJeu[0]);
