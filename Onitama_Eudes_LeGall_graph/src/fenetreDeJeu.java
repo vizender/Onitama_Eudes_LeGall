@@ -246,8 +246,11 @@ public class fenetreDeJeu extends javax.swing.JFrame {
             ListeJoueurs[0].affecterCouleur("bleu"); // on affecte des couleurs aux joueurs en fonction du chiffre aléatoire
         }
     }
+    
+    //Void pour creer et distribuer 5 cartes de jeu au debut de la partie
     public void creationCartes(){
         
+        //On definit toutes les cartes, avec les coordonées jouables relatives au pion, et le nom.
         int[][] coordboar = {{2,1},{1,2},{2,3}};
         Carte cboar = new Carte("boar",coordboar) ;
         
@@ -293,29 +296,32 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         int[][] coordtiger = {{2,0},{2,3}};
         Carte ctiger = new Carte("tiger" ,coordtiger) ;
               
+        //On mets ttes les cartes dans un tableau qu'on va ensuite piocher
         Carte [] TabCartes = {cboar,ccobra,ccrab,ccrane,cdragon,ceel,celephant,
             cgoose,chorse,cmantis,cmonkey,cox,crabbit,crooster,ctiger};
  
-        
+        //Tableau des 5 cartes utilisées dans une partie
         Carte [] CarteJeu = new Carte[5];
         Random r = new Random();
         boolean test;
         
-        for (int i=0; i<5; i++){
-            do{
-                int R = r.nextInt(15);
+        //Shenanigans pour selectionner 5 cartes au hasard sans doublons
+        //PS : on ne fait pas d'operations sur le tableau des 16 cartes originels par securite, donc la fonction ci-dessous est pas belle du tout
+        for (int i=0; i<5; i++){ // On repete l'operation pour les 5 cartes
+            do{ // On repete une selection de carte tant que y'a doublons
+                int R = r.nextInt(15); //On prends aleatoirement une des 16 cartes du tableau ci dessus
                 test=false;
-                int tot=0;
-                CarteJeu[i] = TabCartes[R];
-                for (int j=0; j<i; j++){
+                int tot=0; // tot et test vont servir de verification aux doublons (pas tres joli mais fonctionnel)
+                CarteJeu[i] = TabCartes[R]; // On assinge la carte aleatoirement choisie au tableau carte de jeu
+                for (int j=0; j<i; j++){ // On verifie que y'a pas de les doublons un a un avec les precedentes cartes
                     if (CarteJeu[i]!=CarteJeu[j]){
-                        tot++;
+                        tot++; // Comme on verifie un a un, on utilise tot pour confirmer que tout est bon
                     }
                 }
                 if(tot==i){
-                    test=true;
+                    test=true; // Si toutes les cartes precedentes sont bien differentes, alors on est bon
                 }
-            }while (test==false);
+            }while (test==false); // On confirme pas de doublon, on passe a l'attribution de la carte suivante
         }
         
         j1_carte1.add(CarteJeu[0]);
