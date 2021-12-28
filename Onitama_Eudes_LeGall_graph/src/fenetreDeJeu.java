@@ -68,7 +68,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
 
         panneau_grille.setBackground(new java.awt.Color(240, 230, 230));
         panneau_grille.setLayout(new java.awt.GridLayout(5, 5));
-        getContentPane().add(panneau_grille, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 200, 400, 400));
+        getContentPane().add(panneau_grille, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 200, 400, 400));
 
         panneau_info_joueurs.setBackground(new java.awt.Color(240, 200, 180));
         panneau_info_joueurs.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -116,13 +116,13 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         panneau_info_partie.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
         jLabelC1.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
-        panneau_info_partie.add(jLabelC1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 140, -1, -1));
+        panneau_info_partie.add(jLabelC1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 110, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         panneau_info_partie.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 140, -1, -1));
 
         jSeparator1.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
-        panneau_info_partie.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 290, 10));
+        panneau_info_partie.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 290, 10));
 
         jLabelJ1.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         panneau_info_partie.add(jLabelJ1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 80, -1, -1));
@@ -136,24 +136,24 @@ public class fenetreDeJeu extends javax.swing.JFrame {
 
         jLabelC2.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         jLabelC2.setText(" ");
-        panneau_info_partie.add(jLabelC2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 310, -1, -1));
+        panneau_info_partie.add(jLabelC2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 190, -1, -1));
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         jLabel11.setText("Couleur");
-        panneau_info_partie.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, -1, -1));
+        panneau_info_partie.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, -1, -1));
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         jLabel12.setText("Joueur 2");
-        panneau_info_partie.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, -1, -1));
+        panneau_info_partie.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, -1, -1));
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         jLabel13.setText("Couleur");
-        panneau_info_partie.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, -1, -1));
+        panneau_info_partie.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, -1, -1));
 
         jLabelJ2.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
-        panneau_info_partie.add(jLabelJ2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 240, -1, -1));
+        panneau_info_partie.add(jLabelJ2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, -1, -1));
 
-        getContentPane().add(panneau_info_partie, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 350, 550));
+        getContentPane().add(panneau_info_partie, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 550, 350, 230));
 
         panneau_carte6.setBackground(new java.awt.Color(240, 230, 200));
         panneau_carte6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -169,7 +169,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
 
         j2_carte1.setBackground(new java.awt.Color(240, 230, 200));
         j2_carte1.setLayout(new java.awt.GridLayout(1, 1));
-        getContentPane().add(j2_carte1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 10, 300, 174));
+        getContentPane().add(j2_carte1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 10, 300, 174));
 
         j1_carte1.setBackground(new java.awt.Color(240, 230, 200));
         j1_carte1.setLayout(new java.awt.GridLayout(1, 1));
@@ -177,7 +177,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
 
         att_carte.setBackground(new java.awt.Color(240, 230, 200));
         att_carte.setLayout(new java.awt.GridLayout(1, 1));
-        getContentPane().add(att_carte, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 240, 190, 260));
+        getContentPane().add(att_carte, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 320, 300, 174));
 
         setBounds(0, 0, 1075, 831);
     }// </editor-fold>//GEN-END:initComponents
@@ -247,72 +247,82 @@ public class fenetreDeJeu extends javax.swing.JFrame {
             ListeJoueurs[0].affecterCouleur("bleu"); // on affecte des couleurs aux joueurs en fonction du chiffre aléatoire
         }
     }
-
-    public void creationCartes() {
-
-        int[][] coordboar = {{2, 1}, {1, 2}, {2, 3}};
-        Carte cboar = new Carte("boar", coordboar);
-
-        int[][] coordcobra = {{2, 1}, {1, 3}, {3, 3}};
-        Carte ccobra = new Carte("cobra", coordcobra);
-
-        int[][] coordcrab = {{2, 0}, {1, 2}, {2, 4}};
-        Carte ccrab = new Carte("crab", coordcrab);
-
-        int[][] coordcrane = {{3, 1}, {2, 1}, {3, 3}};
-        Carte ccrane = new Carte("crane", coordcrane);
-
-        int[][] coorddragon = {{0, 1}, {1, 3}, {3, 3}, {4, 1}};
-        Carte cdragon = new Carte("dragon", coorddragon);
-
-        int[][] coordeel = {{1, 1}, {1, 3}, {3, 2}};
-        Carte ceel = new Carte("eel", coordeel);
-
-        int[][] coordelephant = {{1, 1}, {1, 2}, {3, 1}, {3, 2}};
-        Carte celephant = new Carte("elephant", coordelephant);
-
-        int[][] coordgoose = {{1, 1}, {1, 2}, {3, 2}, {3, 3}};
-        Carte cgoose = new Carte("goose", coordgoose);
-
-        int[][] coordhorse = {{1, 2}, {2, 1}, {2, 3}};
-        Carte chorse = new Carte("horse", coordhorse);
-
-        int[][] coordmantis = {{1, 1}, {2, 3}, {3, 1}};
-        Carte cmantis = new Carte("mantis", coordmantis);
-
-        int[][] coordmonkey = {{1, 1}, {1, 3}, {3, 1}, {3, 3}};
-        Carte cmonkey = new Carte("monkey", coordmonkey);
-
-        int[][] coordox = {{2, 1}, {3, 2}, {2, 3}};
-        Carte cox = new Carte("ox", coordox);
-
-        int[][] coordrabbit = {{1, 3}, {3, 1}, {4, 2}};
-        Carte crabbit = new Carte("rabbit", coordrabbit);
-
-        int[][] coordrooster = {{1, 2}, {1, 3}, {3, 1}, {3, 2}};
-        Carte crooster = new Carte("rooster", coordrooster);
-
-        int[][] coordtiger = {{2, 0}, {2, 3}};
-        Carte ctiger = new Carte("tiger", coordtiger);
-
-        Carte[] TabCartes = {cboar, ccobra, ccrab, ccrane, cdragon, ceel, celephant,
-            cgoose, chorse, cmantis, cmonkey, cox, crabbit, crooster, ctiger};
-
-        Carte[] CarteJeu = new Carte[5];
+    
+    //Void pour creer et distribuer 5 cartes de jeu au debut de la partie
+    public void creationCartes(){
+        
+        //On definit toutes les cartes, avec les coordonées jouables relatives au pion, et le nom.
+        int[][] coordboar = {{2,1},{1,2},{2,3}};
+        Carte cboar = new Carte("boar",coordboar) ;
+        
+        int[][] coordcobra = {{2,1},{1,3},{3,3}};
+        Carte ccobra = new Carte("cobra",coordcobra) ;
+        
+        int[][] coordcrab = {{2,0},{1,2},{2,4}};
+        Carte ccrab = new Carte("crab",coordcrab) ;
+        
+        int[][] coordcrane = {{3,1},{2,1},{3,3}};
+        Carte ccrane = new Carte("crane",coordcrane) ;
+        
+        int[][] coorddragon = {{0,1},{1,3},{3,3},{4,1}};
+        Carte cdragon = new Carte("dragon",coorddragon) ;
+        
+        int[][] coordeel = {{1,1},{1,3},{3,2}};
+        Carte ceel = new Carte("eel",coordeel) ;
+        
+        int[][] coordelephant = {{1,1},{1,2},{3,1},{3,2}};
+        Carte celephant = new Carte("elephant",coordelephant) ;
+        
+        int[][] coordgoose = {{1,1},{1,2},{3,2},{3,3}};
+        Carte cgoose = new Carte("goose",coordgoose) ;
+        
+        int[][] coordhorse = {{1,2},{2,1},{2,3}};
+        Carte chorse = new Carte("horse",coordhorse) ;
+        
+        int[][] coordmantis = {{1,1},{2,3},{3,1}};
+        Carte cmantis = new Carte("mantis",coordmantis) ;
+        
+        int[][] coordmonkey = {{1,1},{1,3},{3,1},{3,3}};
+        Carte cmonkey = new Carte("monkey",coordmonkey) ;
+        
+        int[][] coordox = {{2,1},{3,2},{2,3}};
+        Carte cox = new Carte("ox",coordox) ;
+        
+        int[][] coordrabbit = {{1,3},{3,1},{4,2}};
+        Carte crabbit = new Carte("rabbit",coordrabbit) ;
+        
+        int[][] coordrooster = {{1,2},{1,3},{3,1},{3,2}};
+        Carte crooster = new Carte("rooster", coordrooster) ;
+        
+        int[][] coordtiger = {{2,0},{2,3}};
+        Carte ctiger = new Carte("tiger" ,coordtiger) ;
+              
+        //On mets ttes les cartes dans un tableau qu'on va ensuite piocher
+        Carte [] TabCartes = {cboar,ccobra,ccrab,ccrane,cdragon,ceel,celephant,
+            cgoose,chorse,cmantis,cmonkey,cox,crabbit,crooster,ctiger};
+ 
+        //Tableau des 5 cartes utilisées dans une partie
+        Carte [] CarteJeu = new Carte[5];
         Random r = new Random();
         boolean test;
-        for (int i = 0; i < 5; i++) {
-            do {
-                int R = r.nextInt(15);
-                test = false;
-                CarteJeu[i] = TabCartes[R];
-                for (int j = 0; j < i; j++) {
-                    if (CarteJeu[i].nom == CarteJeu[j].nom) {
-                        test = true;
-                        break;
+        
+        //Shenanigans pour selectionner 5 cartes au hasard sans doublons
+        //PS : on ne fait pas d'operations sur le tableau des 16 cartes originels par securite, donc la fonction ci-dessous est pas belle du tout
+        for (int i=0; i<5; i++){ // On repete l'operation pour les 5 cartes
+            do{ // On repete une selection de carte tant que y'a doublons
+                int R = r.nextInt(15); //On prends aleatoirement une des 16 cartes du tableau ci dessus
+                test=false;
+                int tot=0; // tot et test vont servir de verification aux doublons (pas tres joli mais fonctionnel)
+                CarteJeu[i] = TabCartes[R]; // On assinge la carte aleatoirement choisie au tableau carte de jeu
+                for (int j=0; j<i; j++){ // On verifie que y'a pas de les doublons un a un avec les precedentes cartes
+                    if (CarteJeu[i]!=CarteJeu[j]){
+                        tot++; // Comme on verifie un a un, on utilise tot pour confirmer que tout est bon
                     }
                 }
-            } while (test == true);
+                if(tot==i){
+                    test=true; // Si toutes les cartes precedentes sont bien differentes, alors on est bon
+                }
+            }while (test==false); // On confirme pas de doublon, on passe a l'attribution de la carte suivante
         }
 
         j1_carte1.add(CarteJeu[0]);
