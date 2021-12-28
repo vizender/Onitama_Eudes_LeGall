@@ -178,7 +178,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
 
         att_carte.setBackground(new java.awt.Color(240, 230, 200));
         att_carte.setLayout(new java.awt.GridLayout(1, 1));
-        getContentPane().add(att_carte, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 290, 300, 174));
+        getContentPane().add(att_carte, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 240, 190, 260));
 
         setBounds(0, 0, 1075, 831);
     }// </editor-fold>//GEN-END:initComponents
@@ -306,9 +306,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
                 test=false;
                 CarteJeu[i] = TabCartes[R];
                 for (int j=0 ; j<i ; j++){
-                    if (CarteJeu[i].nom==TabCartes[j].nom){
-                        System.out.println(CarteJeu[i].nom +" "+ TabCartes[j].nom + j);
-                        System.out.println("test true");
+                    if (CarteJeu[i].nom==CarteJeu[j].nom){
                         test=true;
                         break;
                     }
