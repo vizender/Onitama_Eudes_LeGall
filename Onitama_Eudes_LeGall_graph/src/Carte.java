@@ -72,33 +72,6 @@ public class Carte extends JButton {
     public void paintComponent(Graphics G) {
         ImageIcon result = (ImageIcon) h.get(nom);
         super.paintComponent(G);
-        //G.rotate(Math.PI/2);
         setIcon(result);
-        /*    
-    AffineTransform rotation = new AffineTransform();
-    rotation = rotation.getRotateInstance(-Math.PI / 2,(int)(result.getWidth(null)/2),(int)(result.getHeight(null)/2));
-    g2d.drawImage(imagePlayer, rotation, null);
-    }*/
- /*
-    @Override
-    public void paintComponent(Graphics g) {
-        ImageIcon result = (ImageIcon) h.get(nom);
-        Graphics2D G = (Graphics2D)g;
-        super.paintComponent(G);
-        setIcon(result); 
-        G.drawString(nom, 1, 1);
-        G.rotate(Math.PI/2);
-    
-    }*/
- /*
-        @Override
-    public void paintComponent(Graphics g) {
-        Graphics2D g2d = (Graphics2D) g;
-        int w2 = getWidth() / 2;
-        int h2 = getHeight() / 2;
-        g2d.rotate(-Math.PI / 2, w2, h2);
-        super.paintComponent(g);
-    }*/
-
     }
 }

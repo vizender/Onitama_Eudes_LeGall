@@ -25,6 +25,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         initComponents();
         //panneau_info_joueurs.setVisible(false);
         panneau_info_partie.setVisible(false);
+        jPvictoire.setVisible(false);
         
         JBj2_carte1.setOpaque(false);
         JBj2_carte1.setContentAreaFilled(false);
@@ -54,9 +55,26 @@ public class fenetreDeJeu extends javax.swing.JFrame {
                             joueurSuivant();
                         }else if(cellule.pionCourant.couleur != joueurCourant.couleur && grilleJeu.celluleSelect[0] != 5){
                             if (cellule.pionCourant.roi==true) {
+                                System.out.println("test boucle");
                                 joueurSuivant();
-                                System.out.println("Victoire de " + joueurCourant.nom);}
+                                jLvictoire.setText("Victoire de "+joueurCourant.nom); //Victoire du joueur
+                                jPvictoire.setVisible(true);
+                            
+                            for (int i = 4; i >= 0; i--) {
+                                for (int j = 0; j < 5; j++) {
+                                    grilleJeu.tabCellule[i][j].setEnabled(false);
+                                }}
+                            
+                            
+                            
+                            
+                            }
                             grilleJeu.deplacerPion(cellule.ligne, cellule.colonne);
+                            if (grilleJeu.compterPions()!=null){
+                                jLvictoire.setText("Victoire de "+joueurCourant.nom); //Victoire du joueur
+                                cellule.setEnabled(false);
+                                jPvictoire.setVisible(true);
+                            }
                             joueurSuivant();
                             
                         }
@@ -80,6 +98,8 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPvictoire = new javax.swing.JPanel();
+        jLvictoire = new javax.swing.JLabel();
         panneau_grille = new javax.swing.JPanel();
         panneau_info_joueurs = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -113,6 +133,16 @@ public class fenetreDeJeu extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPvictoire.setBackground(new java.awt.Color(240, 240, 230));
+        jPvictoire.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "FELICITATION", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Imprint MT Shadow", 0, 36))); // NOI18N
+        jPvictoire.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLvictoire.setFont(new java.awt.Font("Imprint MT Shadow", 0, 48)); // NOI18N
+        jLvictoire.setText("VICTOIRE DE AZERTYU");
+        jPvictoire.add(jLvictoire, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, -1, 90));
+
+        getContentPane().add(jPvictoire, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 290, 720, 230));
 
         panneau_grille.setBackground(new java.awt.Color(240, 230, 230));
         panneau_grille.setLayout(new java.awt.GridLayout(5, 5));
@@ -273,7 +303,6 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         panneau_info_partie.setVisible(true);
         initialiserPartie();
         attribuerCouleurAuxJoueurs();
-        System.out.println("1er repaint");
         panneau_grille.repaint();
     }//GEN-LAST:event_jbt_startActionPerformed
 
@@ -281,7 +310,6 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         // TODO add your handling code here:
         System.out.println("bouton 1 joueur 2");
         if (joueurCourant.couleur=="rouge"){
-            
         }
     }//GEN-LAST:event_JBj2_carte1ActionPerformed
 
@@ -482,16 +510,17 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         creationPion();
         creationCartes();
     }
-    /*
-    public void debuterPartie(){
-        do{
-            if (pionCourant.couleur==joueurCourant.couleur){
-                do{
-                    
-                }while(pionCourant.couleur=!joueurCourant.couleur)
-            }
-        }while(1==1) ; //condition de victoire
-    }*/
+    
+    public void Victoire(){
+        
+        
+        
+        for (int i = 4; i >= 0; i--) {
+            for (int j = 0; j < 5; j++) {
+                grilleJeu.tabCellule[i][j].setEnabled(false);
+            }}
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JBj1_carte1;
@@ -516,6 +545,8 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelC2;
     private javax.swing.JLabel jLabelJ1;
     private javax.swing.JLabel jLabelJ2;
+    private javax.swing.JLabel jLvictoire;
+    private javax.swing.JPanel jPvictoire;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JButton jbt_start;
     private javax.swing.JTextField nom_joueur1;
