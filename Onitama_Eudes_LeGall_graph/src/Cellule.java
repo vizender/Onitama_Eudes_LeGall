@@ -25,12 +25,13 @@ public class Cellule extends JButton {
     ImageIcon img_castle_rouge = new javax.swing.ImageIcon(getClass().getResource("/images/Case_Castle_Down.png"));
     ImageIcon img_castle_bleu = new javax.swing.ImageIcon(getClass().getResource("/images/Case_Castle_Up.png"));
     
-    
+    //Chaque cellule possede un pion associé, des coordonnées, et peut etre le trone
     Pion pionCourant ;
     boolean trone ;
     int ligne ;
     int colonne ;
     
+    //quand on construit la cellule, il faut au minimum les coordonnées associées
     public Cellule (int i, int j) {
         ligne=i;
         colonne=j;
