@@ -32,30 +32,19 @@ public class fenetreDeJeu extends javax.swing.JFrame {
 
                 cellule.addActionListener(new java.awt.event.ActionListener() {
                     public void actionPerformed(java.awt.event.ActionEvent evt) {
-                        System.out.println(grilleJeu.celluleSelect[0]+" "+grilleJeu.celluleSelect[1]);
                         if (cellule.pionCourant!=null && cellule.pionCourant.couleur == joueurCourant.couleur) {     //Si un pion du joueur courant
                             grilleJeu.selectCellule(cellule.ligne, cellule.colonne);
                         } else if (cellule.pionCourant == null && grilleJeu.celluleSelect[0] != 5) {
-                            System.out.println("test entrée boucle");
                             grilleJeu.deplacerPion(cellule.ligne, cellule.colonne);
                             grilleJeu.celluleSelect[0]=5;
                             grilleJeu.celluleSelect[1]=5;
                         }
                         panneau_grille.repaint();
-                        if(grilleJeu.tabCellule[3][0].pionCourant!=null) {
-                            System.out.println("VICTOIRE");
-                            System.out.println(grilleJeu.tabCellule[3][0].pionCourant.couleur);
-                        }
-                        panneau_grille.add(cellule);
-                        
-                        
                     }
                 }
                 );
-
-                panneau_grille.add(cellule);
+                panneau_grille.add(cellule);              
                 panneau_grille.repaint();
-                System.out.println("TRYYYY");
             }
         }
 
