@@ -38,6 +38,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
                             grilleJeu.deplacerPion(cellule.ligne, cellule.colonne);
                             grilleJeu.celluleSelect[0]=5;
                             grilleJeu.celluleSelect[1]=5;
+                            joueurSuivant();
                         }
                         panneau_grille.repaint();
                     }
@@ -264,6 +265,15 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         });
     }
 
+    
+    public void joueurSuivant(){
+        if (joueurCourant == ListeJoueurs[0]) {
+                    joueurCourant = ListeJoueurs[1];
+                } else {
+                    joueurCourant = ListeJoueurs[0];
+                }
+    }
+    
     public void attribuerCouleurAuxJoueurs() {
         Random r = new Random();
         int R = r.nextInt(2); // on créé ici un entier aléatoire entre 0 et 1
