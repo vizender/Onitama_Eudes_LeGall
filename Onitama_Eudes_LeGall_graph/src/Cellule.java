@@ -40,10 +40,7 @@ public class Cellule extends JButton {
     //Affichage des pions
     @Override
     public void paintComponent ( Graphics G) {
-        //System.out.println("testtt");
-        //if (roi==true)System.out.println("true");
         super.paintComponent(G);
-        //if (roi==true)System.out.println("true");
         if (pionCourant==null)setIcon(img_vide);
         else if(pionCourant.couleur=="bleu" && pionCourant.roi==false)setIcon(img_pion_bleu);
         else if(pionCourant.couleur=="rouge" && pionCourant.roi==false)setIcon(img_pion_rouge);
