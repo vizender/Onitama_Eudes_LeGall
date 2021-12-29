@@ -16,7 +16,8 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     Joueur joueurCourant;
     Grille grilleJeu = new Grille();
     Pion pionCourant;
-
+    Carte carteCourante;
+    
     /**
      * Creates new form fenetreDeJeu
      */
@@ -399,7 +400,6 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         //System.out.println(pionCourant.couleur);
         creationPion();
         creationCartes();
-
     }
     /*
     public void debuterPartie(){
