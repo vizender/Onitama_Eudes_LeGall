@@ -8,7 +8,7 @@
  * @author victorlegall
  */
 public class Grille {
-    // La Grille de 5x5 sera constituée de pions
+    // La Grille de 5x5 sera constituée de cellules
     Cellule tabCellule [][] = new Cellule[5][5];
     int[] celluleSelect = new int[2];
     
@@ -22,6 +22,7 @@ public class Grille {
         celluleSelect[0]=5;
         celluleSelect[1]=5;
     }
+    
     
     public void ajouterCellule(Cellule c, int i, int j) {
         tabCellule[i][j]=c ;
