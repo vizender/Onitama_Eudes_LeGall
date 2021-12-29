@@ -14,17 +14,8 @@ import javax.swing.JButton;
  *
  * @author victorlegall
  */
-public class Pion extends JButton {
-    
-    // On importes les images de toutes les pions
-    ImageIcon img_vide = new javax.swing.ImageIcon(getClass().getResource("/images/Case_Vide.png"));
-    ImageIcon img_pion_rouge = new javax.swing.ImageIcon(getClass().getResource("/images/Pion_Rouge.png"));
-    ImageIcon img_pion_bleu = new javax.swing.ImageIcon(getClass().getResource("/images/Pion_Bleu.png"));
-    ImageIcon img_roi_rouge = new javax.swing.ImageIcon(getClass().getResource("/images/Roi_Rouge.png"));
-    ImageIcon img_roi_bleu = new javax.swing.ImageIcon(getClass().getResource("/images/Roi_Bleu.png"));
-    ImageIcon img_castle_rouge = new javax.swing.ImageIcon(getClass().getResource("/images/Case_Castle_Down.png"));
-    ImageIcon img_castle_bleu = new javax.swing.ImageIcon(getClass().getResource("/images/Case_Castle_Up.png"));
-    
+public class Pion {
+        
     // 2 Attribus des pions, couleur et type roi
     String couleur;
     boolean roi;
@@ -52,20 +43,5 @@ public class Pion extends JButton {
             return true;
         }
         return false;
-    }
-    
-    
-    //Affichage des pions
-    @Override
-    public void paintComponent ( Graphics G) {
-        //System.out.println("testtt");
-        //if (roi==true)System.out.println("true");
-        super.paintComponent(G);
-        //if (roi==true)System.out.println("true");
-        if(couleur=="bleu" && roi==false)setIcon(img_pion_bleu);
-        else if(couleur=="rouge" && roi==false)setIcon(img_pion_rouge);
-        else if(couleur=="bleu" && roi==true)setIcon(img_roi_bleu);
-        else if(couleur=="rouge" && roi==true)setIcon(img_roi_rouge);
-        else setIcon(img_vide);
-    }
+    }    
 }

@@ -9,18 +9,31 @@
  */
 public class Grille {
     // La Grille de 5x5 sera constituée de pions
-    Pion tabPion [][] = new Pion[5][5];
+    Cellule tabCellule [][] = new Cellule[5][5];
+    int[] celluleSelect = new int[2];
     
     //On initialise une grille vide
     public Grille(){
         for (int i=0; i<5; i++){
             for (int j=0; j<5; j++){
-                tabPion[i][j]=null;
+                tabCellule[i][j]=null;
             }
         }
+        celluleSelect[0]=5;
+        celluleSelect[1]=5;
     }
     
-    public void ajouterPion(Pion pion,int i,int j){
-        tabPion[i][j]=pion ;
+    public void ajouterCellule(Cellule c, int i, int j) {
+        tabCellule[i][j]=c ;
     }
+
+    public void selectCellule(int i,int j) {
+        celluleSelect[0]=i ;    //Sauvegarde ligne
+        celluleSelect[1]=j ;    //Sauvegarde colonne
+    }
+
+    public void deplacerPion(int ligne, int colonne) {
+        tabCellule[ligne][colonne]=tabCellule[celluleSelect[0]][celluleSelect[1]];
+    }
+    
 }

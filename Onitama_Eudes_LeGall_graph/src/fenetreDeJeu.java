@@ -27,21 +27,35 @@ public class fenetreDeJeu extends javax.swing.JFrame {
 
         for (int i = 4; i >= 0; i--) {
             for (int j = 0; j < 5; j++) {
-                Pion pionJeu = new Pion(null, false, i, j);
-                grilleJeu.ajouterPion(pionJeu, i, j);
+                Cellule cellule = new Cellule(i, j);
+                grilleJeu.ajouterCellule(cellule, i, j);
 
-                pionJeu.addActionListener(new java.awt.event.ActionListener() {
+                cellule.addActionListener(new java.awt.event.ActionListener() {
                     public void actionPerformed(java.awt.event.ActionEvent evt) {
-                        if (grilleJeu.pionSelect[0] == 5) {
-                            if (pionJeu.couleur == joueurCourant.couleur) {
-                                grilleJeu.selectPion();
-                                System.out.println();
-                            }
+                        System.out.println(grilleJeu.celluleSelect[0]+" "+grilleJeu.celluleSelect[1]);
+                        if (cellule.pionCourant!=null && cellule.pionCourant.couleur == joueurCourant.couleur) {     //Si un pion du joueur courant
+                            grilleJeu.selectCellule(cellule.ligne, cellule.colonne);
+                        } else if (cellule.pionCourant == null && grilleJeu.celluleSelect[0] != 5) {
+                            System.out.println("test entrée boucle");
+                            grilleJeu.deplacerPion(cellule.ligne, cellule.colonne);
+                            grilleJeu.celluleSelect[0]=5;
+                            grilleJeu.celluleSelect[1]=5;
                         }
+                        panneau_grille.repaint();
+                        if(grilleJeu.tabCellule[3][0].pionCourant!=null) {
+                            System.out.println("VICTOIRE");
+                            System.out.println(grilleJeu.tabCellule[3][0].pionCourant.couleur);
+                        }
+                        panneau_grille.add(cellule);
+                        
+                        
                     }
-                });
+                }
+                );
 
-                panneau_grille.add(pionJeu);
+                panneau_grille.add(cellule);
+                panneau_grille.repaint();
+                System.out.println("TRYYYY");
             }
         }
 
@@ -235,16 +249,21 @@ public class fenetreDeJeu extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(fenetreDeJeu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(fenetreDeJeu.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(fenetreDeJeu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(fenetreDeJeu.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(fenetreDeJeu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(fenetreDeJeu.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(fenetreDeJeu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(fenetreDeJeu.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -360,13 +379,13 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         att_carte.repaint();
     }
 
-    public void placerPion() {
+    public void creationPion() {
         for (int i = 0; i < 5; i++) {
-            grilleJeu.tabPion[0][i].couleur = "bleu";
-            grilleJeu.tabPion[4][i].couleur = "rouge";
-            grilleJeu.tabPion[0][2].roi = true;
-            grilleJeu.tabPion[4][2].roi = true;
+            grilleJeu.tabCellule[0][i].pionCourant = new Pion("bleu", false);
+            grilleJeu.tabCellule[4][i].pionCourant = new Pion("rouge", false);
         }
+        grilleJeu.tabCellule[0][2].pionCourant.roi = true;
+        grilleJeu.tabCellule[4][2].pionCourant.roi = true;
     }
 
     public void initialiserPartie() {
@@ -385,8 +404,11 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         jLabelC1.setText(j1.couleur);
         jLabelC2.setText(j2.couleur);
 
+        grilleJeu.tabCellule[0][2].trone = true;
+        grilleJeu.tabCellule[4][2].trone = true;
+
         //System.out.println(pionCourant.couleur);
-        placerPion();
+        creationPion();
         creationCartes();
 
     }
