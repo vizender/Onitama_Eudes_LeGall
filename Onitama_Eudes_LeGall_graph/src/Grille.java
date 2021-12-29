@@ -12,7 +12,7 @@ public class Grille {
     Cellule tabCellule [][] = new Cellule[5][5];
     int[] celluleSelect = new int[2];
     
-    //On initialise une grille vide
+    //On initialise une grille de ce
     public Grille(){
         for (int i=0; i<5; i++){
             for (int j=0; j<5; j++){
