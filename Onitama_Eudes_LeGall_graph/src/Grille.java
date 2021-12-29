@@ -33,7 +33,23 @@ public class Grille {
     }
 
     public void deplacerPion(int ligne, int colonne) {
-        tabCellule[ligne][colonne]=tabCellule[celluleSelect[0]][celluleSelect[1]];
+        tabCellule[ligne][colonne].pionCourant=tabCellule[celluleSelect[0]][celluleSelect[1]].pionCourant;
+        tabCellule[celluleSelect[0]][celluleSelect[1]].pionCourant=null;
     }
     
+    public void afficherGrilleSurConsole(){
+        String res = "";
+        String res1 = "";
+        for (int i = 4 ; i >= 0 ; i--){ //lignes
+            for (int j = 0 ; j <= 4 ; j++){ //colonnes
+                if (tabCellule[i][j].pionCourant == null) res += " x ";
+                else {if (tabCellule[i][j].pionCourant.couleur == "rouge") res += ("\u001B[31m R \u001B[30m");
+                     if (tabCellule[i][j].pionCourant.couleur == "bleu") res += ("\u001B[33m J \u001B[30m");}
+                //System.out.println(res);
+            } 
+            res1 += res + "\n";
+            res = "";
+        } 
+        System.out.println(res1);
+    }
 }
