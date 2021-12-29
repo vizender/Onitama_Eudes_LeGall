@@ -25,7 +25,21 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         initComponents();
         //panneau_info_joueurs.setVisible(false);
         panneau_info_partie.setVisible(false);
-
+        
+        JBj2_carte1.setOpaque(false);
+        JBj2_carte1.setContentAreaFilled(false);
+        JBj2_carte1.setBorderPainted(false);
+        JBj2_carte2.setOpaque(false);
+        JBj2_carte2.setContentAreaFilled(false);
+        JBj2_carte2.setBorderPainted(false);
+        JBj1_carte1.setOpaque(false);
+        JBj1_carte1.setContentAreaFilled(false);
+        JBj1_carte1.setBorderPainted(false);
+        JBj1_carte2.setOpaque(false);
+        JBj1_carte2.setContentAreaFilled(false);
+        JBj1_carte2.setBorderPainted(false);
+        
+        
         for (int i = 4; i >= 0; i--) {
             for (int j = 0; j < 5; j++) {
                 Cellule cellule = new Cellule(i, j);
@@ -54,7 +68,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
                 panneau_grille.repaint();
             }
         }
-
+        
     }
 
     /**
@@ -73,6 +87,10 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         nom_joueur2 = new javax.swing.JTextField();
         nom_joueur1 = new javax.swing.JTextField();
         jbt_start = new javax.swing.JButton();
+        JBj1_carte2 = new javax.swing.JButton();
+        JBj1_carte1 = new javax.swing.JButton();
+        JBj2_carte2 = new javax.swing.JButton();
+        JBj2_carte1 = new javax.swing.JButton();
         panneau_info_partie = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabelC1 = new javax.swing.JLabel();
@@ -137,6 +155,34 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         panneau_info_joueurs.add(jbt_start, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 120, -1, -1));
 
         getContentPane().add(panneau_info_joueurs, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 350, 180));
+
+        JBj1_carte2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBj1_carte2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(JBj1_carte2, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 603, 310, 180));
+
+        JBj1_carte1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBj1_carte1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(JBj1_carte1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 603, 300, 180));
+
+        JBj2_carte2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBj2_carte2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(JBj2_carte2, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 3, 310, 190));
+
+        JBj2_carte1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBj2_carte1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(JBj2_carte1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 3, 300, 190));
 
         panneau_info_partie.setBackground(new java.awt.Color(240, 200, 180));
         panneau_info_partie.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -203,7 +249,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
 
         j1_carte1.setBackground(new java.awt.Color(240, 230, 200));
         j1_carte1.setLayout(new java.awt.GridLayout(1, 1));
-        getContentPane().add(j1_carte1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 610, 300, 174));
+        getContentPane().add(j1_carte1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 610, 300, 174));
 
         att_carte.setBackground(new java.awt.Color(240, 230, 200));
         att_carte.setLayout(new java.awt.GridLayout(1, 1));
@@ -230,6 +276,26 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         System.out.println("1er repaint");
         panneau_grille.repaint();
     }//GEN-LAST:event_jbt_startActionPerformed
+
+    private void JBj2_carte1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBj2_carte1ActionPerformed
+        // TODO add your handling code here:
+        System.out.println("bouton 1 joueur 2");
+        if (joueurCourant.couleur=="rouge"){
+            
+        }
+    }//GEN-LAST:event_JBj2_carte1ActionPerformed
+
+    private void JBj2_carte2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBj2_carte2ActionPerformed
+        System.out.println("bouton 2 joueur 2");
+    }//GEN-LAST:event_JBj2_carte2ActionPerformed
+
+    private void JBj1_carte1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBj1_carte1ActionPerformed
+        System.out.println("bouton 1 joueur 1");
+    }//GEN-LAST:event_JBj1_carte1ActionPerformed
+
+    private void JBj1_carte2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBj1_carte2ActionPerformed
+        System.out.println("boutton 2 joueur 1");
+    }//GEN-LAST:event_JBj1_carte2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -379,7 +445,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
 
         j1_carte1.repaint();
         j1_carte2.repaint();
-        j1_carte2.repaint();
+        j2_carte1.repaint();
         j2_carte2.repaint();
         att_carte.repaint();
     }
@@ -428,6 +494,10 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     }*/
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton JBj1_carte1;
+    private javax.swing.JButton JBj1_carte2;
+    private javax.swing.JButton JBj2_carte1;
+    private javax.swing.JButton JBj2_carte2;
     private javax.swing.JPanel att_carte;
     private javax.swing.JPanel j1_carte1;
     private javax.swing.JPanel j1_carte2;
