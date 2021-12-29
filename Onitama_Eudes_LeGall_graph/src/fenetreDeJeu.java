@@ -37,9 +37,14 @@ public class fenetreDeJeu extends javax.swing.JFrame {
                             grilleJeu.selectCellule(cellule.ligne, cellule.colonne);
                         } else if (cellule.pionCourant == null && grilleJeu.celluleSelect[0] != 5) {
                             grilleJeu.deplacerPion(cellule.ligne, cellule.colonne);
-                            grilleJeu.celluleSelect[0]=5;
-                            grilleJeu.celluleSelect[1]=5;
                             joueurSuivant();
+                        }else if(cellule.pionCourant.couleur != joueurCourant.couleur && grilleJeu.celluleSelect[0] != 5){
+                            if (cellule.pionCourant.roi==true) {
+                                joueurSuivant();
+                                System.out.println("Victoire de " + joueurCourant.nom);}
+                            grilleJeu.deplacerPion(cellule.ligne, cellule.colonne);
+                            joueurSuivant();
+                            
                         }
                         panneau_grille.repaint();
                     }
@@ -404,7 +409,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         jLabelC1.setText(j1.couleur);
         jLabelC2.setText(j2.couleur);
 
-        grilleJeu.tabCellule[0][2].trone = true;
+        grilleJeu.tabCellule[0][2].trone = true;    //initialisation des trones
         grilleJeu.tabCellule[4][2].trone = true;
 
         //System.out.println(pionCourant.couleur);

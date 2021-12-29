@@ -36,6 +36,8 @@ public class Grille {
     public void deplacerPion(int ligne, int colonne) {
         tabCellule[ligne][colonne].pionCourant=tabCellule[celluleSelect[0]][celluleSelect[1]].pionCourant;
         tabCellule[celluleSelect[0]][celluleSelect[1]].pionCourant=null;
+        celluleSelect[0]=5;
+        celluleSelect[1]=5;
     }
     
     public void afficherGrilleSurConsole(){
