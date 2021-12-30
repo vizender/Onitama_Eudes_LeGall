@@ -57,13 +57,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
                             if (cellule.pionCourant.roi==true) {
                                 System.out.println("test boucle");
                                 joueurSuivant();
-                                jLvictoire.setText("Victoire de "+joueurCourant.nom); //Victoire du joueur
-                                jPvictoire.setVisible(true);
-                            
-                            for (int i = 4; i >= 0; i--) {
-                                for (int j = 0; j < 5; j++) {
-                                    grilleJeu.tabCellule[i][j].setEnabled(false);
-                                }}
+                                Victoire();
                             
                             
                             
@@ -512,13 +506,16 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     }
     
     public void Victoire(){
-        
-        
-        
         for (int i = 4; i >= 0; i--) {
             for (int j = 0; j < 5; j++) {
                 grilleJeu.tabCellule[i][j].setEnabled(false);
             }}
+        /*
+        for (int i = 4; i<5 ; i++){
+            CarteJeu[i].setEnabled(false);
+        }
+        jLvictoire.setText("Victoire de "+joueurCourant.nom); //Victoire du joueur
+        jPvictoire.setVisible(true);*/
     }
 
 
