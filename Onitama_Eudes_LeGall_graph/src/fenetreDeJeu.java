@@ -17,7 +17,6 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     Grille grilleJeu = new Grille();
     Pion pionCourant;
     Carte carteCourante;
-    Carte carteSelect ;
 
     /**
      * Creates new form fenetreDeJeu
@@ -48,10 +47,11 @@ public class fenetreDeJeu extends javax.swing.JFrame {
 
                 cellule.addActionListener(new java.awt.event.ActionListener() {
                     public void actionPerformed(java.awt.event.ActionEvent evt) {
-                        if (carteSelect!=null)System.out.println("C'est la win");
+                        if (carteCourante!=null)System.out.println("C'est la win");
                         if (cellule.pionCourant != null && cellule.pionCourant.couleur == joueurCourant.couleur) {     //Si un pion du joueur courant
                             grilleJeu.selectCellule(cellule.ligne, cellule.colonne);
                         } else if (cellule.pionCourant == null && grilleJeu.celluleSelect[0] != 5) {
+                            //for (int i=0 ; i<carteCourante.)
                             grilleJeu.deplacerPion(cellule.ligne, cellule.colonne);
                             joueurSuivant();
                         } else if (cellule.pionCourant.couleur != joueurCourant.couleur && grilleJeu.celluleSelect[0] != 5) {
@@ -78,18 +78,48 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         creationJoueurs();
         Carte CarteJeu[] = creationCartes();
         
+        CarteJeu[0].addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    if ((CarteJeu[0]==joueurCourant.cartes[0])||(CarteJeu[0]==joueurCourant.cartes[1])) {
+                        carteCourante=CarteJeu[0] ;
+                        System.out.println("c'est good11");}
+                }});
+        CarteJeu[1].addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    if ((CarteJeu[1]==joueurCourant.cartes[0])||(CarteJeu[1]==joueurCourant.cartes[1])) {
+                        carteCourante=CarteJeu[1] ;
+                        System.out.println("c'est good12");}
+                }});
+        CarteJeu[2].addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    if ((CarteJeu[2]==joueurCourant.cartes[0])||(CarteJeu[2]==joueurCourant.cartes[1])) {
+                        carteCourante=CarteJeu[2] ;
+                        System.out.println("c'est good21");}
+                }});
+        CarteJeu[3].addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    if ((CarteJeu[3]==joueurCourant.cartes[0])||(CarteJeu[3]==joueurCourant.cartes[1])) {
+                        carteCourante=CarteJeu[3] ;
+                        System.out.println("c'est good22");}
+                }});
+        
+        
+        
+        /*
         for (int i = 0; i < 5; i++) {
             carteCourante=CarteJeu[i] ;
-            CarteJeu[i].addActionListener(new java.awt.event.ActionListener() {
+            System.out.println(carteCourante.nom);
+            carteCourante.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent evt) {
                     System.out.println("yes");
+                    System.out.println(carteCourante.nom);
                     if ((carteCourante==joueurCourant.cartes[0])||(carteCourante==joueurCourant.cartes[1])) {
                         carteSelect=carteCourante ;
                         System.out.println("c'est good");
                     }
                 }
             });
-        }
+        }*/
 
         j1_carte1.add(CarteJeu[0]);
         j1_carte2.add(CarteJeu[1]);
@@ -444,15 +474,15 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         att_carte.repaint();
         
         if (ListeJoueurs[0].couleur=="rouge") {
-            ListeJoueurs[0].cartes[0]=CarteJeu[0] ;
-            ListeJoueurs[0].cartes[1]=CarteJeu[1] ;
-            ListeJoueurs[1].cartes[0]=CarteJeu[2] ;
-            ListeJoueurs[1].cartes[1]=CarteJeu[3] ;
-        } else {
             ListeJoueurs[1].cartes[0]=CarteJeu[0] ;
             ListeJoueurs[1].cartes[1]=CarteJeu[1] ;
             ListeJoueurs[0].cartes[0]=CarteJeu[2] ;
             ListeJoueurs[0].cartes[1]=CarteJeu[3] ;
+        } else {
+            ListeJoueurs[0].cartes[0]=CarteJeu[0] ;
+            ListeJoueurs[0].cartes[1]=CarteJeu[1] ;
+            ListeJoueurs[1].cartes[0]=CarteJeu[2] ;
+            ListeJoueurs[1].cartes[1]=CarteJeu[3] ;
         }
         
         return CarteJeu;
@@ -491,9 +521,9 @@ public class fenetreDeJeu extends javax.swing.JFrame {
 
         //System.out.println(pionCourant.couleur);
         creationPion();
-        creationCartes();
+        //creationCartes();
     }
-
+    
     public void Victoire() {
         for (int i = 4; i >= 0; i--) {
             for (int j = 0; j < 5; j++) {
