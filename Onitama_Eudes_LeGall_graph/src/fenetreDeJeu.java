@@ -43,7 +43,10 @@ public class fenetreDeJeu extends javax.swing.JFrame {
                                 carteCourante.afficherGrille();
                                 if (carteCourante.grilleCarte[4-(cellule.ligne + 2 - grilleJeu.celluleSelect[0])][cellule.colonne + 2 - grilleJeu.celluleSelect[1]] == true) { //Si on clique sur une case vide
                                     System.out.println("C'EST CARREMENT LA WIN");
-                                    grilleJeu.deplacerPion(cellule.ligne, cellule.colonne); // On deplace
+                                    grilleJeu.deplacerPion(cellule.ligne, cellule.colonne); // On deplace le pion
+                                    if(cellule.pionCourant.roi==true && cellule.trone==true && cellule.couleur!=joueurCourant.couleur){
+                                        Victoire();
+                                    }
                                     //changementCarte();
                                     changerCarte(carteCourante); // On echange des cartes
                                     joueurSuivant();}
@@ -53,6 +56,9 @@ public class fenetreDeJeu extends javax.swing.JFrame {
                                     Victoire(); // On gagne
                                 }
                                 grilleJeu.deplacerPion(cellule.ligne, cellule.colonne); //On deplace le pion
+                                if(cellule.pionCourant.roi==true && cellule.trone==true && cellule.couleur!=joueurCourant.couleur){
+                                        Victoire();
+                                    }
                                 if (grilleJeu.compterPions() != null) { // Si il n'y a plus de pions
                                     jLvictoire.setText("Victoire de " + joueurCourant.nom); //Victoire du joueur
                                     cellule.setEnabled(false);
@@ -421,6 +427,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
             joueurCourant = ListeJoueurs[0];
         }
         carteCourante = null;
+        panneau_grille.repaint();
     }
 
     public void attribuerCouleurAuxJoueurs() {
@@ -451,7 +458,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         int[][] coordeel = {{1, 1}, {3, 1}, {2, 3}};
         Carte ceel = new Carte("eel", coordeel);
 
-        int[][] coordelephant = {{1, 1}, {1, 1}, {3, 3}};
+        int[][] coordelephant = {{1, 1}, {2, 1}, {1, 3}, {2,3}};
         Carte celephant = new Carte("elephant", coordelephant);
 
         int[][] coordfrog = {{2, 0}, {1, 1}, {3, 3}};
@@ -561,36 +568,6 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         
     }
 
-    public void changementCarte() {
-        System.out.println("carte att : " + CarteJeu[4].nom);
-        System.out.println("carte courante : " + carteCourante.nom);
-
-        if (carteCourante == joueurCourant.cartes[0]) {
-            joueurCourant.cartes[0] = CarteJeu[4];
-            if (joueurCourant.couleur == "rouge") {
-
-            }
-        } else {
-            joueurCourant.cartes[1] = CarteJeu[4];
-        }
-        CarteJeu[4] = carteCourante;
-        carteCourante = null;
-        System.out.println("carte att : " + CarteJeu[4].nom);
-        System.out.println("carte courante : " + joueurCourant.cartes[0].nom);
-
-        j1_carte1.add(CarteJeu[0]);
-        j1_carte2.add(CarteJeu[1]);
-        j2_carte1.add(CarteJeu[2]);
-        j2_carte2.add(CarteJeu[3]);
-        att_carte.add(CarteJeu[4]);
-
-        j1_carte1.repaint();
-        j1_carte2.repaint();
-        j2_carte1.repaint();
-        j2_carte2.repaint();
-        att_carte.repaint();
-    }
-
     public void creationPion() {
         for (int i = 0; i < 5; i++) {
             grilleJeu.tabCellule[0][i].pionCourant = new Pion("bleu", false);
@@ -628,7 +605,8 @@ public class fenetreDeJeu extends javax.swing.JFrame {
 
         grilleJeu.tabCellule[0][2].trone = true;    //initialisation des trones
         grilleJeu.tabCellule[4][2].trone = true;
-
+        grilleJeu.tabCellule[0][2].couleur = "bleu";    
+        grilleJeu.tabCellule[4][2].couleur = "rouge";
         creationPion();
     }
 

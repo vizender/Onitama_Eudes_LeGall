@@ -27,7 +27,8 @@ public class Cellule extends JButton {
     
     //Chaque cellule possede un pion associé, des coordonnées, et peut etre le trone
     Pion pionCourant ;
-    boolean trone ;
+    boolean trone;
+    String couleur;
     int ligne ;
     int colonne ;
     
