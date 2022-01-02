@@ -69,7 +69,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
                                 joueurSuivant();
                             }
                         }
-                        panneau_grille.repaint();
+                        
                     }
                 }
                 );
@@ -175,6 +175,10 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         j2_carte1 = new javax.swing.JPanel();
         j1_carte1 = new javax.swing.JPanel();
         att_carte = new javax.swing.JPanel();
+        btn_j1_c1 = new javax.swing.JButton();
+        btn_j2_c1 = new javax.swing.JButton();
+        btn_j2_c2 = new javax.swing.JButton();
+        btn_j1_c2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -279,7 +283,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         jLabelJ2.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         panneau_info_partie.add(jLabelJ2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, -1, -1));
 
-        getContentPane().add(panneau_info_partie, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 550, 350, 230));
+        getContentPane().add(panneau_info_partie, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 470, 350, 290));
 
         panneau_carte6.setBackground(new java.awt.Color(240, 230, 200));
         panneau_carte6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -303,7 +307,39 @@ public class fenetreDeJeu extends javax.swing.JFrame {
 
         att_carte.setBackground(new java.awt.Color(240, 230, 200));
         att_carte.setLayout(new java.awt.GridLayout(1, 1));
-        getContentPane().add(att_carte, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 320, 300, 174));
+        getContentPane().add(att_carte, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 260, 300, 174));
+
+        btn_j1_c1.setText("selectionner carte");
+        btn_j1_c1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_j1_c1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_j1_c1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 580, -1, -1));
+
+        btn_j2_c1.setText("selectionner carte");
+        btn_j2_c1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_j2_c1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_j2_c1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 190, -1, -1));
+
+        btn_j2_c2.setText("selectionner carte");
+        btn_j2_c2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_j2_c2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_j2_c2, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 200, -1, -1));
+
+        btn_j1_c2.setText("selectionner carte");
+        btn_j1_c2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_j1_c2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_j1_c2, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 580, -1, -1));
 
         setBounds(0, 0, 1075, 831);
     }// </editor-fold>//GEN-END:initComponents
@@ -325,6 +361,35 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         //attribuerCouleurAuxJoueurs();
         panneau_grille.repaint();
     }//GEN-LAST:event_jbt_startActionPerformed
+
+    private void btn_j1_c1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_j1_c1ActionPerformed
+        if (joueurCourant.couleur=="bleu"){
+            carteCourante=CarteJeu[0];
+            System.out.println(carteCourante.nom);
+        }
+    }//GEN-LAST:event_btn_j1_c1ActionPerformed
+
+    private void btn_j1_c2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_j1_c2ActionPerformed
+        if (joueurCourant.couleur=="bleu"){
+            carteCourante=CarteJeu[1];
+            System.out.println(carteCourante.nom);
+        }
+    }//GEN-LAST:event_btn_j1_c2ActionPerformed
+
+    private void btn_j2_c1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_j2_c1ActionPerformed
+        if (joueurCourant.couleur=="rouge"){
+            carteCourante=CarteJeu[2];
+            System.out.println(carteCourante.nom);
+        }
+    }//GEN-LAST:event_btn_j2_c1ActionPerformed
+
+    private void btn_j2_c2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_j2_c2ActionPerformed
+        if (joueurCourant.couleur=="rouge"){
+            carteCourante=CarteJeu[3];
+            System.out.println(carteCourante.nom);
+            
+        }
+    }//GEN-LAST:event_btn_j2_c2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -438,6 +503,8 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         Carte[] TabCartes = {cboar, ccobra, ccrab, ccrane, cdragon, ceel, celephant, cfrog,
             cgoose, chorse, cmantis, cmonkey, cox, crabbit, crooster, ctiger};
 
+        //Tableau des 5 cartes utilisées dans une partie
+        
         Random r = new Random();
         boolean test;
 
@@ -606,6 +673,10 @@ public class fenetreDeJeu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel att_carte;
+    private javax.swing.JButton btn_j1_c1;
+    private javax.swing.JButton btn_j1_c2;
+    private javax.swing.JButton btn_j2_c1;
+    private javax.swing.JButton btn_j2_c2;
     private javax.swing.JPanel j1_carte1;
     private javax.swing.JPanel j1_carte2;
     private javax.swing.JPanel j2_carte1;
