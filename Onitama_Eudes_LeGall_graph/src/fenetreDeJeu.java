@@ -60,6 +60,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
                                     panneau_grille.repaint();
                                 }
                                 joueurSuivant();
+                                panneau_grille.repaint();
                             }
                         }
 
@@ -453,7 +454,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         int[][] coordelephant = {{1, 1}, {1, 1}, {3, 3}};
         Carte celephant = new Carte("elephant", coordelephant);
 
-        int[][] coordfrog = {{2, 0}, {3, 2}, {3, 2}};
+        int[][] coordfrog = {{2, 0}, {1, 1}, {3, 3}};
         Carte cfrog = new Carte("frog", coordfrog);
 
         int[][] coordgoose = {{1, 1}, {2, 1}, {2, 3}, {3, 3}};
