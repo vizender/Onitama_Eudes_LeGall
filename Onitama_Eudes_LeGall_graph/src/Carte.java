@@ -45,12 +45,12 @@ public class Carte extends JButton {
     public Carte(String Nom, int[][] tabCoords) {
         nom = Nom;
         for (int i = 0; i < tabCoords.length; i++) {
-            int x = tabCoords[i][0];
-            int y = tabCoords[i][1];
+            int y = tabCoords[i][0];
+            int x = tabCoords[i][1];
             grilleCarte[x][y] = true;
         }
         h.put("boar", carte_boar);
-        h.put("cobra", carte_crab);
+        h.put("cobra", carte_cobra);
         h.put("crab", carte_crab);
         h.put("crane", carte_crane);
         h.put("dragon", carte_dragon);
@@ -67,7 +67,21 @@ public class Carte extends JButton {
         h.put("tiger", carte_tiger);
     }
 
-    //Affichage des cartes via le hashage, on apelle le nom de la carte, qui est la clef correspondante a l'img de la carte
+    public void afficherGrille(){
+        String res = "";
+        String res1 = "";
+        for (int i = 4 ; i >= 0 ; i--){ //lignes
+            for (int j = 0 ; j <= 4 ; j++){ //colonnes
+                if (grilleCarte[i][j]== true) res += " x ";
+                else { res += ("\u001B[31m R \u001B[30m"); } }
+            res1 += res + "\n";
+            res = "";
+        } 
+        System.out.println(res1);
+    }
+    
+    
+    //Affichage des cartes via le hashage, on appelle le nom de la carte, qui est la clef correspondante a l'img de la carte
     @Override
     public void paintComponent(Graphics G) {
         ImageIcon result = (ImageIcon) h.get(nom);
