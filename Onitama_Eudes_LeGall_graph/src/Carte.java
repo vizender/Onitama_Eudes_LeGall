@@ -72,7 +72,7 @@ public class Carte extends JButton {
     public void afficherGrille(){
         String res = "";
         String res1 = "";
-        for (int i = 4 ; i >= 0 ; i--){ //lignes
+        for (int i = 0 ; i <= 4 ; i++){ //lignes
             for (int j = 0 ; j <= 4 ; j++){ //colonnes
                 if (grilleCarte[i][j]== true) res += " x ";
                 else { res += ("\u001B[31m R \u001B[30m"); } }  //On affiche R avec une couleur particuliere
