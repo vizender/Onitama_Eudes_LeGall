@@ -296,6 +296,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         if (joueurCourant.couleur=="rouge"){
             carteCourante=CarteJeu[3];
             System.out.println(carteCourante.nom);
+            
         }
     }//GEN-LAST:event_btn_j2_c2ActionPerformed
 
@@ -465,6 +466,19 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         }
         grilleJeu.tabCellule[0][2].pionCourant.roi = true;
         grilleJeu.tabCellule[4][2].pionCourant.roi = true;
+    }
+
+    
+    public void changerCarte(Carte carteAChanger){
+        int k=0;
+        for(int i=0; i<=4; i++){
+            if (carteAChanger==CarteJeu[i])
+                k=i;
+        }
+        Carte att;
+        att=CarteJeu[k];
+        CarteJeu[k]=CarteJeu[4];
+        CarteJeu[4]=att;
     }
 
     public void initialiserPartie() {
