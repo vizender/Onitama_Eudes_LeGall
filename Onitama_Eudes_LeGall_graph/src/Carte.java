@@ -45,8 +45,8 @@ public class Carte extends JButton {
     public Carte(String Nom, int[][] tabCoords) {
         nom = Nom;
         for (int i = 0; i < tabCoords.length; i++) {
-            int y = tabCoords[i][0];
-            int x = tabCoords[i][1];
+            int x = tabCoords[i][0];
+            int y = tabCoords[i][1];
             grilleCarte[x][y] = true;
         }
         //On lie dans le hashage les img avec un nom
