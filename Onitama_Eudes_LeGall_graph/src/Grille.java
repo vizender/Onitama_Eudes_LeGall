@@ -40,6 +40,20 @@ public class Grille {
         celluleSelect[1]=5;
     }
     
+    public String compterPions(){
+        int comptR = 0;
+        int comptB = 0;
+        for (int i = 4; i >= 0; i--) {
+            for (int j = 0; j < 5; j++) {
+                if (tabCellule[i][j].pionCourant != null && tabCellule[i][j].pionCourant.couleur=="rouge") comptR ++ ;
+                if (tabCellule[i][j].pionCourant != null && tabCellule[i][j].pionCourant.couleur=="bleu") comptB ++ ;
+            }
+        }
+        if (comptR==0) return "rouge";
+        else if (comptB==0) return "bleu" ;
+        else return null ;
+    }
+    
     public void afficherGrilleSurConsole(){
         String res = "";
         String res1 = "";

@@ -45,8 +45,8 @@ public class Carte extends JButton {
     public Carte(String Nom, int[][] tabCoords) {
         nom = Nom;
         for (int i = 0; i < tabCoords.length; i++) {
-            int x = tabCoords[i][0];
-            int y = tabCoords[i][1];
+            int y = tabCoords[i][0];
+            int x = tabCoords[i][1];
             grilleCarte[x][y] = true;
         }
         h.put("boar", carte_boar);
@@ -67,38 +67,25 @@ public class Carte extends JButton {
         h.put("tiger", carte_tiger);
     }
 
-    //Affichage des cartes via le hashage, on apelle le nom de la carte, qui est la clef correspondante a l'img de la carte
+    public void afficherGrille(){
+        String res = "";
+        String res1 = "";
+        for (int i = 4 ; i >= 0 ; i--){ //lignes
+            for (int j = 0 ; j <= 4 ; j++){ //colonnes
+                if (grilleCarte[i][j]== true) res += " x ";
+                else { res += ("\u001B[31m R \u001B[30m"); } }
+            res1 += res + "\n";
+            res = "";
+        } 
+        System.out.println(res1);
+    }
+    
+    
+    //Affichage des cartes via le hashage, on appelle le nom de la carte, qui est la clef correspondante a l'img de la carte
     @Override
     public void paintComponent(Graphics G) {
         ImageIcon result = (ImageIcon) h.get(nom);
         super.paintComponent(G);
-        //G.rotate(Math.PI/2);
         setIcon(result);
-        /*    
-    AffineTransform rotation = new AffineTransform();
-    rotation = rotation.getRotateInstance(-Math.PI / 2,(int)(result.getWidth(null)/2),(int)(result.getHeight(null)/2));
-    g2d.drawImage(imagePlayer, rotation, null);
-    }*/
- /*
-    @Override
-    public void paintComponent(Graphics g) {
-        ImageIcon result = (ImageIcon) h.get(nom);
-        Graphics2D G = (Graphics2D)g;
-        super.paintComponent(G);
-        setIcon(result); 
-        G.drawString(nom, 1, 1);
-        G.rotate(Math.PI/2);
-    
-    }*/
- /*
-        @Override
-    public void paintComponent(Graphics g) {
-        Graphics2D g2d = (Graphics2D) g;
-        int w2 = getWidth() / 2;
-        int h2 = getHeight() / 2;
-        g2d.rotate(-Math.PI / 2, w2, h2);
-        super.paintComponent(g);
-    }*/
-
     }
 }
