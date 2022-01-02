@@ -49,6 +49,7 @@ public class Carte extends JButton {
             int y = tabCoords[i][1];
             grilleCarte[x][y] = true;
         }
+        //On lie dans le hashage les img avec un nom
         h.put("boar", carte_boar);
         h.put("cobra", carte_cobra);
         h.put("crab", carte_crab);
@@ -67,14 +68,15 @@ public class Carte extends JButton {
         h.put("tiger", carte_tiger);
     }
 
+    //Affichage de la grille sur la console
     public void afficherGrille(){
         String res = "";
         String res1 = "";
         for (int i = 4 ; i >= 0 ; i--){ //lignes
             for (int j = 0 ; j <= 4 ; j++){ //colonnes
                 if (grilleCarte[i][j]== true) res += " x ";
-                else { res += ("\u001B[31m R \u001B[30m"); } }
-            res1 += res + "\n";
+                else { res += ("\u001B[31m R \u001B[30m"); } }  //On affiche R avec une couleur particuliere
+            res1 += res + "\n"; //On passe ensuite a la ligne
             res = "";
         } 
         System.out.println(res1);

@@ -41,27 +41,19 @@ public class fenetreDeJeu extends javax.swing.JFrame {
                                 panneau_grille.repaint();
                             } else if (cellule.pionCourant == null && grilleJeu.celluleSelect[0] != 5) {
                                 carteCourante.afficherGrille();
-                                if (joueurCourant.couleur == "rouge") {
-                                    if (carteCourante.grilleCarte[cellule.ligne + 2 - grilleJeu.celluleSelect[0]][cellule.colonne + 2 - grilleJeu.celluleSelect[1]] == true) {
-                                        grilleJeu.deplacerPion(cellule.ligne, cellule.colonne);
-                                        changerCarte(carteCourante);
-                                        joueurSuivant();
-                                    }
-                                    panneau_grille.repaint();
-                                }else{
-                                    if (carteCourante.grilleCarte[4 - (cellule.ligne + 2 - grilleJeu.celluleSelect[0])][cellule.colonne + 2 - grilleJeu.celluleSelect[1]] == true) {
-                                        grilleJeu.deplacerPion(cellule.ligne, cellule.colonne);
-                                        changerCarte(carteCourante);
-                                        joueurSuivant();
-                                    }
-                                }
-                            } else if (cellule.pionCourant.couleur != joueurCourant.couleur && grilleJeu.celluleSelect[0] != 5) {
-                                if (cellule.pionCourant.roi == true) {
+                                if (carteCourante.grilleCarte[4-(cellule.ligne + 2 - grilleJeu.celluleSelect[0])][cellule.colonne + 2 - grilleJeu.celluleSelect[1]] == true) { //Si on clique sur une case vide
+                                    System.out.println("C'EST CARREMENT LA WIN");
+                                    grilleJeu.deplacerPion(cellule.ligne, cellule.colonne); // On deplace
+                                    //changementCarte();
+                                    changerCarte(carteCourante); // On echange des cartes
+                                    joueurSuivant();}
+                            } else if (cellule.pionCourant.couleur != joueurCourant.couleur && grilleJeu.celluleSelect[0] != 5) { // Si on clique sur un pion adverse
+                                if (cellule.pionCourant.roi == true) { // Si c'est un roi
                                     joueurSuivant();
-                                    Victoire();
+                                    Victoire(); // On gagne
                                 }
-                                grilleJeu.deplacerPion(cellule.ligne, cellule.colonne);
-                                if (grilleJeu.compterPions() != null) {
+                                grilleJeu.deplacerPion(cellule.ligne, cellule.colonne); //On deplace le pion
+                                if (grilleJeu.compterPions() != null) { // Si il n'y a plus de pions
                                     jLvictoire.setText("Victoire de " + joueurCourant.nom); //Victoire du joueur
                                     cellule.setEnabled(false);
                                     jPvictoire.setVisible(true);
@@ -565,6 +557,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         j2_carte1.repaint();
         j2_carte2.repaint();
         att_carte.repaint();
+        
     }
 
     public void changementCarte() {
