@@ -167,7 +167,6 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         jLabelJ2 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
-        JCtext = new javax.swing.JLabel();
         CCenter = new javax.swing.JLabel();
         JCenter = new javax.swing.JLabel();
         panneau_carte6 = new javax.swing.JPanel();
@@ -290,10 +289,6 @@ public class fenetreDeJeu extends javax.swing.JFrame {
 
         jSeparator2.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         panneau_info_partie.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 290, 10));
-
-        JCtext.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
-        JCtext.setText("Joueur Courant");
-        panneau_info_partie.add(JCtext, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, -1, -1));
 
         CCenter.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         CCenter.setText(" ");
@@ -673,7 +668,6 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     private javax.swing.JLabel CCenter;
     private javax.swing.JLabel CCtext;
     private javax.swing.JLabel JCenter;
-    private javax.swing.JLabel JCtext;
     private javax.swing.JPanel att_carte;
     private javax.swing.JButton btn_j1_c1;
     private javax.swing.JButton btn_j1_c2;
