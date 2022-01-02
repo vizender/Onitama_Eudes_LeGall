@@ -52,7 +52,8 @@ public class fenetreDeJeu extends javax.swing.JFrame {
                                 if (carteCourante.grilleCarte[4-(cellule.ligne + 2 - grilleJeu.celluleSelect[0])][cellule.colonne + 2 - grilleJeu.celluleSelect[1]] == true) {
                                     System.out.println("C'EST CARREMENT LA WIN");
                                     grilleJeu.deplacerPion(cellule.ligne, cellule.colonne);
-                                    changementCarte();
+                                    //changementCarte();
+                                    changerCarte(carteCourante);
                                     joueurSuivant();}
                             } else if (cellule.pionCourant.couleur != joueurCourant.couleur && grilleJeu.celluleSelect[0] != 5) {
                                 if (cellule.pionCourant.roi == true) {
@@ -223,6 +224,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
 
         jbt_start.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jbt_start.setText("Start");
+        jbt_start.setSelected(true);
         jbt_start.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbt_startActionPerformed(evt);
@@ -370,20 +372,13 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         } else {
             joueurCourant = ListeJoueurs[0];
         }
+        carteCourante=null;
     }
 
     public void attribuerCouleurAuxJoueurs() {
-        Random r = new Random();
-        int R = r.nextInt(2); // on créé ici un entier aléatoire entre 0 et 1
-        if (R == 0) {
             ListeJoueurs[0].affecterCouleur("rouge");
             ListeJoueurs[1].affecterCouleur("bleu");
             joueurCourant = ListeJoueurs[0];
-        } else {
-            ListeJoueurs[1].affecterCouleur("rouge");
-            ListeJoueurs[0].affecterCouleur("bleu"); // on affecte des couleurs aux joueurs en fonction du chiffre aléatoire
-            joueurCourant = ListeJoueurs[1];
-        }
     }
 
     //Void pour creer et distribuer 5 cartes de jeu au debut de la partie
@@ -399,7 +394,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         int[][] coordcrab = {{2, 0}, {1, 2}, {2, 4}};
         Carte ccrab = new Carte("crab", coordcrab);
 
-        int[][] coordcrane = {{1, 3}, {1, 2}, {3, 3}};
+        int[][] coordcrane = {{1, 2}, {3, 1}, {3, 3}};
         Carte ccrane = new Carte("crane", coordcrane);
 
         int[][] coorddragon = {{0, 1}, {1, 3}, {3, 3}, {4, 1}};
@@ -488,6 +483,30 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         return CarteJeu;
     }
 
+    public void changerCarte(Carte carteAChanger){
+        int k=0;
+        for(int i=0; i<=4; i++){
+            if (carteAChanger==CarteJeu[i])
+                k=i;
+        }
+        Carte att;
+        att=CarteJeu[k];
+        CarteJeu[k]=CarteJeu[4];
+        CarteJeu[4]=att;
+        
+        j1_carte1.add(CarteJeu[0]);
+        j1_carte2.add(CarteJeu[1]);
+        j2_carte1.add(CarteJeu[2]);
+        j2_carte2.add(CarteJeu[3]);
+        att_carte.add(CarteJeu[4]);
+        
+        j1_carte1.repaint();
+        j1_carte2.repaint();
+        j2_carte1.repaint();
+        j2_carte2.repaint();
+        att_carte.repaint();
+    }
+    
     public void changementCarte(){
         System.out.println("carte att : "+CarteJeu[4].nom);
         System.out.println("carte courante : "+carteCourante.nom);
@@ -496,8 +515,9 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         
         if (carteCourante==joueurCourant.cartes[0]){
             joueurCourant.cartes[0]=CarteJeu[4];
-        if (joueurCourant.couleur=="rouge"){
-            
+            if (joueurCourant.couleur=="rouge"){
+                
+
         }}
         else{
             joueurCourant.cartes[1]=CarteJeu[4];
@@ -520,8 +540,6 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         att_carte.repaint();
     }
     
-    
-    
     public void creationPion() {
         for (int i = 0; i < 5; i++) {
             grilleJeu.tabCellule[0][i].pionCourant = new Pion("bleu", false);
@@ -537,8 +555,16 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         String nomJoueur2 = nom_joueur2.getText();
         Joueur j2 = new Joueur(nomJoueur2);
         
-        ListeJoueurs[0] = j1;
-        ListeJoueurs[1] = j2;
+        Random r = new Random();
+        int R = r.nextInt(2); // on créé ici un entier aléatoire entre 0 et 1
+        if (R == 0) {
+            ListeJoueurs[0] = j1;
+            ListeJoueurs[1] = j2;
+        }else{
+            ListeJoueurs[1] = j1;
+            ListeJoueurs[0] = j2;
+        }
+        
 
         this.attribuerCouleurAuxJoueurs();
 
