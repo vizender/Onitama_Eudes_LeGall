@@ -50,7 +50,7 @@ public class Carte extends JButton {
             grilleCarte[x][y] = true;
         }
         h.put("boar", carte_boar);
-        h.put("cobra", carte_crab);
+        h.put("cobra", carte_cobra);
         h.put("crab", carte_crab);
         h.put("crane", carte_crane);
         h.put("dragon", carte_dragon);
