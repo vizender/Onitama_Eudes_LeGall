@@ -42,19 +42,21 @@ public class fenetreDeJeu extends javax.swing.JFrame {
                                 panneau_grille.repaint();
                             } else if (cellule.pionCourant == null && grilleJeu.celluleSelect[0] != 5) {
                                 carteCourante.afficherGrille();
-
+                                /* Pour la suite, on est obligé de faire des redondances entre rouge et bleu pour inverser les cartes
+                                on ne peut pas simplifier avec des fonctions car on est dans un ActionListener, et on fait appel a ses variables locales, d'ou le (tres) long code.
+                                */
                                 if (joueurCourant.couleur == "rouge") {
-                                    if (carteCourante.grilleCarte[cellule.ligne + 2 - grilleJeu.celluleSelect[0]][cellule.colonne + 2 - grilleJeu.celluleSelect[1]] == true) { //Si on clique sur une case vide
+                                    if (carteCourante.grilleCarte[cellule.ligne + 2 - grilleJeu.celluleSelect[0]][cellule.colonne + 2 - grilleJeu.celluleSelect[1]] == true) { //Si on clique sur une case jouable (sens rouge, inversé), et la case est vide
                                         System.out.println("C'EST CARREMENT LA WIN");
-                                        grilleJeu.deplacerPion(cellule.ligne, cellule.colonne); // On deplace
+                                        grilleJeu.deplacerPion(cellule.ligne, cellule.colonne); // On deplace le pion
                                         if (cellule.pionCourant.roi == true && cellule.trone == true && cellule.couleur != joueurCourant.couleur) {
                                             Victoire();
                                         }
                                         changerCarte(carteCourante); // On echange des cartes
                                         System.out.println("Passe au joueur suivant");
-                                        joueurSuivant();
+                                        joueurSuivant(); // On passe au joueur suivant
                                     }
-                                } else {
+                                } else { // Meme chose, mais pour les bleus, la carte dans le sens bleu
                                     if (carteCourante.grilleCarte[4 - (cellule.ligne + 2 - grilleJeu.celluleSelect[0])][cellule.colonne + 2 - grilleJeu.celluleSelect[1]] == true) { //Si on clique sur une case vide
                                         grilleJeu.deplacerPion(cellule.ligne, cellule.colonne); // On deplace
                                         if (cellule.pionCourant.roi == true && cellule.trone == true && cellule.couleur != joueurCourant.couleur) {
@@ -65,8 +67,8 @@ public class fenetreDeJeu extends javax.swing.JFrame {
                                         joueurSuivant();
                                     }
                                 }
-                                System.out.println("saltibanque");
-                            }
+                                
+                            } // On refait une verif similaire, juste on verifie la presence d'un pion enemi sur la case
                             if (cellule.pionCourant != null && cellule.pionCourant.couleur != joueurCourant.couleur && grilleJeu.celluleSelect[0] != 5) { // Si on clique sur un pion adverse
                                 if (joueurCourant.couleur == "rouge") {
                                     System.out.println("1er vagues");
@@ -76,34 +78,10 @@ public class fenetreDeJeu extends javax.swing.JFrame {
                                             joueurSuivant();
                                             Victoire(); // On gagne
                                         }
-
-                                        grilleJeu.deplacerPion(cellule.ligne, cellule.colonne); //On deplace le pion
-                                        if (grilleJeu.compterPions() != null) { // Si il n'y a plus de pions
-                                            jLvictoire.setText("Victoire de " + joueurCourant.nom); //Victoire du joueur
-                                            cellule.setEnabled(false);
-                                            jPvictoire.setVisible(true);
-                                            panneau_grille.repaint();
-                                        }
+                                        grilleJeu.deplacerPion(cellule.ligne, cellule.colonne); //On deplace le pion quoi qu'il arrive, roi ou pas
                                         joueurSuivant();
                                         panneau_grille.repaint();
-
-                                    } else {
-                                        if (carteCourante.grilleCarte[(cellule.ligne + 2 - grilleJeu.celluleSelect[0])][cellule.colonne + 2 - grilleJeu.celluleSelect[1]] == true) { //Si on clique sur une case vide
-                                            if (cellule.pionCourant.roi == true) { // Si c'est un roi
-                                                joueurSuivant();
-                                                Victoire(); // On gagne
-                                            }
-                                            grilleJeu.deplacerPion(cellule.ligne, cellule.colonne); //On deplace le pion
-                                            if (grilleJeu.compterPions() != null) { // Si il n'y a plus de pions
-                                                jLvictoire.setText("Victoire de " + joueurCourant.nom); //Victoire du joueur
-                                                cellule.setEnabled(false);
-                                                jPvictoire.setVisible(true);
-                                                panneau_grille.repaint();
-                                            }
-                                            joueurSuivant();
-                                            panneau_grille.repaint();
-                                        }
-                                    }
+                                    } 
                                 }
                                 else{
                                     System.out.println("1er vagues");
@@ -123,24 +101,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
                                         }
                                         joueurSuivant();
                                         panneau_grille.repaint();
-
-                                    } else {
-                                        if (carteCourante.grilleCarte[4 - (cellule.ligne + 2 - grilleJeu.celluleSelect[0])][cellule.colonne + 2 - grilleJeu.celluleSelect[1]] == true) { //Si on clique sur une case vide
-                                            if (cellule.pionCourant.roi == true) { // Si c'est un roi
-                                                joueurSuivant();
-                                                Victoire(); // On gagne
-                                            }
-                                            grilleJeu.deplacerPion(cellule.ligne, cellule.colonne); //On deplace le pion
-                                            if (grilleJeu.compterPions() != null) { // Si il n'y a plus de pions
-                                                jLvictoire.setText("Victoire de " + joueurCourant.nom); //Victoire du joueur
-                                                cellule.setEnabled(false);
-                                                jPvictoire.setVisible(true);
-                                                panneau_grille.repaint();
-                                            }
-                                            joueurSuivant();
-                                            panneau_grille.repaint();
-                                        }
-                                    }
+                                    } 
                                 }
                             }
                         }
