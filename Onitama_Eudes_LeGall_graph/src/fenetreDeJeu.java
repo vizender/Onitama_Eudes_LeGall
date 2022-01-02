@@ -385,6 +385,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     public Carte[] creationCartes() {
 
         //On definit toutes les cartes, avec les coordonées jouables relatives au pion, et le nom.
+        
         int[][] coordboar = {{2, 1}, {1, 2}, {2, 3}};
         Carte cboar = new Carte("boar", coordboar);
 
@@ -397,41 +398,44 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         int[][] coordcrane = {{1, 2}, {3, 1}, {3, 3}};
         Carte ccrane = new Carte("crane", coordcrane);
 
-        int[][] coorddragon = {{0, 1}, {1, 3}, {3, 3}, {4, 1}};
+        int[][] coorddragon = {{1, 0}, {1, 4}, {3, 1}, {3, 3}};
         Carte cdragon = new Carte("dragon", coorddragon);
 
-        int[][] coordeel = {{1, 1}, {1, 3}, {3, 2}};
+        int[][] coordeel = {{1, 1}, {3, 1}, {2, 3}};
         Carte ceel = new Carte("eel", coordeel);
 
-        int[][] coordelephant = {{1, 1}, {1, 2}, {3, 1}, {3, 2}};
+        int[][] coordelephant = {{1, 1}, {1, 1}, {3, 3}};
         Carte celephant = new Carte("elephant", coordelephant);
+        
+        int[][] coordfrog = {{2, 0}, {3, 2}, {3, 2}};
+        Carte cfrog = new Carte("frog", coordfrog);
 
-        int[][] coordgoose = {{1, 1}, {1, 2}, {3, 2}, {3, 3}};
+        int[][] coordgoose = {{1, 1}, {2, 1}, {2, 3}, {3, 3}};
         Carte cgoose = new Carte("goose", coordgoose);
 
-        int[][] coordhorse = {{1, 2}, {2, 1}, {2, 3}};
+        int[][] coordhorse = {{1, 2}, {2, 1}, {3, 2}};
         Carte chorse = new Carte("horse", coordhorse);
 
-        int[][] coordmantis = {{1, 1}, {2, 3}, {3, 1}};
+        int[][] coordmantis = {{1, 1}, {1, 3}, {3, 2}};
         Carte cmantis = new Carte("mantis", coordmantis);
 
         int[][] coordmonkey = {{1, 1}, {1, 3}, {3, 1}, {3, 3}};
         Carte cmonkey = new Carte("monkey", coordmonkey);
 
-        int[][] coordox = {{2, 1}, {3, 2}, {2, 3}};
+        int[][] coordox = {{1, 2}, {3, 2}, {2, 3}};
         Carte cox = new Carte("ox", coordox);
 
-        int[][] coordrabbit = {{1, 3}, {3, 1}, {4, 2}};
+        int[][] coordrabbit = {{1, 3}, {3, 1}, {2, 4}};
         Carte crabbit = new Carte("rabbit", coordrabbit);
 
-        int[][] coordrooster = {{1, 2}, {1, 3}, {3, 1}, {3, 2}};
+        int[][] coordrooster = {{2, 1}, {3, 1}, {1, 3}, {2, 3}};
         Carte crooster = new Carte("rooster", coordrooster);
 
-        int[][] coordtiger = {{2, 0}, {2, 3}};
+        int[][] coordtiger = {{0, 2}, {3, 2}};
         Carte ctiger = new Carte("tiger", coordtiger);
 
         //On mets ttes les cartes dans un tableau qu'on va ensuite piocher
-        Carte[] TabCartes = {cboar, ccobra, ccrab, ccrane, cdragon, ceel, celephant,
+        Carte[] TabCartes = {cboar, ccobra, ccrab, ccrane, cdragon, ceel, celephant, cfrog,
             cgoose, chorse, cmantis, cmonkey, cox, crabbit, crooster, ctiger};
 
         Random r = new Random();
@@ -441,7 +445,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         //PS : on ne fait pas d'operations sur le tableau des 16 cartes originels par securite, donc la fonction ci-dessous est pas belle du tout
         for (int i = 0; i < 5; i++) { // On repete l'operation pour les 5 cartes
             do { // On repete une selection de carte tant que y'a doublons
-                int R = r.nextInt(15); //On prends aleatoirement une des 16 cartes du tableau ci dessus
+                int R = r.nextInt(16); //On prends aleatoirement une des 16 cartes du tableau ci dessus
                 test = false;
                 int tot = 0; // tot et test vont servir de verification aux doublons (pas tres joli mais fonctionnel)
                 CarteJeu[i] = TabCartes[R]; // On assinge la carte aleatoirement choisie au tableau carte de jeu
