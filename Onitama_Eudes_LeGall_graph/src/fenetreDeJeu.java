@@ -32,29 +32,29 @@ public class fenetreDeJeu extends javax.swing.JFrame {
             for (int j = 0; j < 5; j++) {
                 Cellule cellule = new Cellule(i, j);
                 grilleJeu.ajouterCellule(cellule, i, j);
-                //cellule.setBackground(new java.awt.Color(240, 240, 0));
-                //public static final PorterDuff.Mode MULTIPLY ;
-                /*
-                javax.swing.GrayFilter.
-                cellule.mPaint.setXfermode(new PorterDuffXfermode(Mode.SRC_IN));
-                PorterDuff.Mode mode = MULTIPLY ;
-                paint.setXfermode(new PorterDuffXfermode(mode));
-                cellule.getBackground().setColorFilter(new java.awt.Color(240, 240, 0), PorterDuff.Mode.MULTIPLY);*/
 
                 cellule.addActionListener(new java.awt.event.ActionListener() {
                     public void actionPerformed(java.awt.event.ActionEvent evt) {
                         if (carteCourante != null) {
                             if (cellule.pionCourant != null && cellule.pionCourant.couleur == joueurCourant.couleur) {     //Si un pion du joueur courant
-                                grilleJeu.selectCellule(cellule.ligne, cellule.colonne);}
-                                
-                            else if (cellule.pionCourant == null && grilleJeu.celluleSelect[0] != 5) {
+                                grilleJeu.selectCellule(cellule.ligne, cellule.colonne);
+                                panneau_grille.repaint();
+                            } else if (cellule.pionCourant == null && grilleJeu.celluleSelect[0] != 5) {
                                 carteCourante.afficherGrille();
-                                if (carteCourante.grilleCarte[4-(cellule.ligne + 2 - grilleJeu.celluleSelect[0])][cellule.colonne + 2 - grilleJeu.celluleSelect[1]] == true) {
-                                    System.out.println("C'EST CARREMENT LA WIN");
-                                    grilleJeu.deplacerPion(cellule.ligne, cellule.colonne);
-                                    //changementCarte();
-                                    changerCarte(carteCourante);
-                                    joueurSuivant();}
+                                if (joueurCourant.couleur == "rouge") {
+                                    if (carteCourante.grilleCarte[cellule.ligne + 2 - grilleJeu.celluleSelect[0]][cellule.colonne + 2 - grilleJeu.celluleSelect[1]] == true) {
+                                        grilleJeu.deplacerPion(cellule.ligne, cellule.colonne);
+                                        changerCarte(carteCourante);
+                                        joueurSuivant();
+                                    }
+                                    panneau_grille.repaint();
+                                }else{
+                                    if (carteCourante.grilleCarte[4 - (cellule.ligne + 2 - grilleJeu.celluleSelect[0])][cellule.colonne + 2 - grilleJeu.celluleSelect[1]] == true) {
+                                        grilleJeu.deplacerPion(cellule.ligne, cellule.colonne);
+                                        changerCarte(carteCourante);
+                                        joueurSuivant();
+                                    }
+                                }
                             } else if (cellule.pionCourant.couleur != joueurCourant.couleur && grilleJeu.celluleSelect[0] != 5) {
                                 if (cellule.pionCourant.roi == true) {
                                     joueurSuivant();
@@ -65,11 +65,12 @@ public class fenetreDeJeu extends javax.swing.JFrame {
                                     jLvictoire.setText("Victoire de " + joueurCourant.nom); //Victoire du joueur
                                     cellule.setEnabled(false);
                                     jPvictoire.setVisible(true);
+                                    panneau_grille.repaint();
                                 }
                                 joueurSuivant();
                             }
                         }
-                        
+
                     }
                 }
                 );
@@ -82,48 +83,33 @@ public class fenetreDeJeu extends javax.swing.JFrame {
 
         CarteJeu[0].addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                if ((CarteJeu[0] == joueurCourant.cartes[0]) || (CarteJeu[0] == joueurCourant.cartes[1])) {
+                if (joueurCourant.couleur == "rouge") {
                     carteCourante = CarteJeu[0];
                 }
             }
         });
         CarteJeu[1].addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                if ((CarteJeu[1] == joueurCourant.cartes[0]) || (CarteJeu[1] == joueurCourant.cartes[1])) {
+                if (joueurCourant.couleur == "rouge") {
                     carteCourante = CarteJeu[1];
                 }
             }
         });
         CarteJeu[2].addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                if ((CarteJeu[2] == joueurCourant.cartes[0]) || (CarteJeu[2] == joueurCourant.cartes[1])) {
+                if (joueurCourant.couleur == "bleu") {
                     carteCourante = CarteJeu[2];
                 }
             }
         });
         CarteJeu[3].addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                if ((CarteJeu[3] == joueurCourant.cartes[0]) || (CarteJeu[3] == joueurCourant.cartes[1])) {
+                if (joueurCourant.couleur == "bleu") {
                     carteCourante = CarteJeu[3];
                 }
             }
         });
 
-        /*
-        for (int i = 0; i < 5; i++) {
-            carteCourante=CarteJeu[i] ;
-            System.out.println(carteCourante.nom);
-            carteCourante.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    System.out.println("yes");
-                    System.out.println(carteCourante.nom);
-                    if ((carteCourante==joueurCourant.cartes[0])||(carteCourante==joueurCourant.cartes[1])) {
-                        carteSelect=carteCourante ;
-                        System.out.println("c'est good");
-                    }
-                }
-            });
-        }*/
         j1_carte1.add(CarteJeu[0]);
         j1_carte2.add(CarteJeu[1]);
         j2_carte1.add(CarteJeu[2]);
@@ -184,16 +170,16 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPvictoire.setBackground(new java.awt.Color(240, 240, 230));
-        jPvictoire.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "FELICITATION", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.ABOVE_TOP, new java.awt.Font("Imprint MT Shadow", 0, 36))); // NOI18N
+        jPvictoire.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "FELICITATION", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.ABOVE_TOP, new java.awt.Font("Imprint MT Shadow", 0, 24))); // NOI18N
         jPvictoire.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLvictoire.setFont(new java.awt.Font("Imprint MT Shadow", 0, 48)); // NOI18N
+        jLvictoire.setFont(new java.awt.Font("Imprint MT Shadow", 0, 24)); // NOI18N
         jLvictoire.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLvictoire.setText("VICTOIRE DE AZERTYU");
         jLvictoire.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPvictoire.add(jLvictoire, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 700, 90));
+        jPvictoire.add(jLvictoire, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 430, 90));
 
-        getContentPane().add(jPvictoire, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 290, 720, 230));
+        getContentPane().add(jPvictoire, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, 430, 210));
 
         panneau_grille.setBackground(new java.awt.Color(240, 230, 230));
         panneau_grille.setLayout(new java.awt.GridLayout(5, 5));
@@ -363,31 +349,35 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     }//GEN-LAST:event_jbt_startActionPerformed
 
     private void btn_j1_c1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_j1_c1ActionPerformed
-        if (joueurCourant.couleur=="bleu"){
-            carteCourante=CarteJeu[0];
+        if (joueurCourant.couleur == "bleu") {
+            carteCourante = CarteJeu[0];
             System.out.println(carteCourante.nom);
+            panneau_grille.repaint();
         }
     }//GEN-LAST:event_btn_j1_c1ActionPerformed
 
     private void btn_j1_c2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_j1_c2ActionPerformed
-        if (joueurCourant.couleur=="bleu"){
-            carteCourante=CarteJeu[1];
+        if (joueurCourant.couleur == "bleu") {
+            carteCourante = CarteJeu[1];
             System.out.println(carteCourante.nom);
+            panneau_grille.repaint();
         }
     }//GEN-LAST:event_btn_j1_c2ActionPerformed
 
     private void btn_j2_c1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_j2_c1ActionPerformed
-        if (joueurCourant.couleur=="rouge"){
-            carteCourante=CarteJeu[2];
+        if (joueurCourant.couleur == "rouge") {
+            carteCourante = CarteJeu[2];
             System.out.println(carteCourante.nom);
+            panneau_grille.repaint();
         }
     }//GEN-LAST:event_btn_j2_c1ActionPerformed
 
     private void btn_j2_c2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_j2_c2ActionPerformed
-        if (joueurCourant.couleur=="rouge"){
-            carteCourante=CarteJeu[3];
+        if (joueurCourant.couleur == "rouge") {
+            carteCourante = CarteJeu[3];
             System.out.println(carteCourante.nom);
-            
+            panneau_grille.repaint();
+
         }
     }//GEN-LAST:event_btn_j2_c2ActionPerformed
 
@@ -437,20 +427,19 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         } else {
             joueurCourant = ListeJoueurs[0];
         }
-        carteCourante=null;
+        carteCourante = null;
     }
 
     public void attribuerCouleurAuxJoueurs() {
-            ListeJoueurs[0].affecterCouleur("rouge");
-            ListeJoueurs[1].affecterCouleur("bleu");
-            joueurCourant = ListeJoueurs[0];
+        ListeJoueurs[0].affecterCouleur("rouge");
+        ListeJoueurs[1].affecterCouleur("bleu");
+        joueurCourant = ListeJoueurs[0];
     }
 
     //Void pour creer et distribuer 5 cartes de jeu au debut de la partie
     public Carte[] creationCartes() {
 
         //On definit toutes les cartes, avec les coordonées jouables relatives au pion, et le nom.
-        
         int[][] coordboar = {{2, 1}, {1, 2}, {2, 3}};
         Carte cboar = new Carte("boar", coordboar);
 
@@ -471,7 +460,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
 
         int[][] coordelephant = {{1, 1}, {1, 1}, {3, 3}};
         Carte celephant = new Carte("elephant", coordelephant);
-        
+
         int[][] coordfrog = {{2, 0}, {3, 2}, {3, 2}};
         Carte cfrog = new Carte("frog", coordfrog);
 
@@ -504,7 +493,6 @@ public class fenetreDeJeu extends javax.swing.JFrame {
             cgoose, chorse, cmantis, cmonkey, cox, crabbit, crooster, ctiger};
 
         //Tableau des 5 cartes utilisées dans une partie
-        
         Random r = new Random();
         boolean test;
 
@@ -554,63 +542,61 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         return CarteJeu;
     }
 
-    public void changerCarte(Carte carteAChanger){
-        int k=0;
-        for(int i=0; i<=4; i++){
-            if (carteAChanger==CarteJeu[i])
-                k=i;
+    public void changerCarte(Carte carteAChanger) {
+        int k = 0;
+        for (int i = 0; i <= 4; i++) {
+            if (carteAChanger == CarteJeu[i]) {
+                k = i;
+            }
         }
         Carte att;
-        att=CarteJeu[k];
-        CarteJeu[k]=CarteJeu[4];
-        CarteJeu[4]=att;
-        
+        att = CarteJeu[k];
+        CarteJeu[k] = CarteJeu[4];
+        CarteJeu[4] = att;
+
         j1_carte1.add(CarteJeu[0]);
         j1_carte2.add(CarteJeu[1]);
         j2_carte1.add(CarteJeu[2]);
         j2_carte2.add(CarteJeu[3]);
         att_carte.add(CarteJeu[4]);
-        
+
         j1_carte1.repaint();
         j1_carte2.repaint();
         j2_carte1.repaint();
         j2_carte2.repaint();
         att_carte.repaint();
     }
-    
-    public void changementCarte(){
-        System.out.println("carte att : "+CarteJeu[4].nom);
-        System.out.println("carte courante : "+carteCourante.nom);
-        
 
-        
-        if (carteCourante==joueurCourant.cartes[0]){
-            joueurCourant.cartes[0]=CarteJeu[4];
-            if (joueurCourant.couleur=="rouge"){
-                
+    public void changementCarte() {
+        System.out.println("carte att : " + CarteJeu[4].nom);
+        System.out.println("carte courante : " + carteCourante.nom);
 
-        }}
-        else{
-            joueurCourant.cartes[1]=CarteJeu[4];
+        if (carteCourante == joueurCourant.cartes[0]) {
+            joueurCourant.cartes[0] = CarteJeu[4];
+            if (joueurCourant.couleur == "rouge") {
+
+            }
+        } else {
+            joueurCourant.cartes[1] = CarteJeu[4];
         }
-        CarteJeu[4]=carteCourante ;
-        carteCourante=null;
-        System.out.println("carte att : "+CarteJeu[4].nom);
-        System.out.println("carte courante : "+joueurCourant.cartes[0].nom);
-        
+        CarteJeu[4] = carteCourante;
+        carteCourante = null;
+        System.out.println("carte att : " + CarteJeu[4].nom);
+        System.out.println("carte courante : " + joueurCourant.cartes[0].nom);
+
         j1_carte1.add(CarteJeu[0]);
         j1_carte2.add(CarteJeu[1]);
         j2_carte1.add(CarteJeu[2]);
         j2_carte2.add(CarteJeu[3]);
         att_carte.add(CarteJeu[4]);
-        
+
         j1_carte1.repaint();
         j1_carte2.repaint();
         j2_carte1.repaint();
         j2_carte2.repaint();
         att_carte.repaint();
     }
-    
+
     public void creationPion() {
         for (int i = 0; i < 5; i++) {
             grilleJeu.tabCellule[0][i].pionCourant = new Pion("bleu", false);
@@ -625,17 +611,16 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         Joueur j1 = new Joueur(nomJoueur1);
         String nomJoueur2 = nom_joueur2.getText();
         Joueur j2 = new Joueur(nomJoueur2);
-        
+
         Random r = new Random();
         int R = r.nextInt(2); // on créé ici un entier aléatoire entre 0 et 1
         if (R == 0) {
             ListeJoueurs[0] = j1;
             ListeJoueurs[1] = j2;
-        }else{
+        } else {
             ListeJoueurs[1] = j1;
             ListeJoueurs[0] = j2;
         }
-        
 
         this.attribuerCouleurAuxJoueurs();
 
@@ -650,9 +635,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         grilleJeu.tabCellule[0][2].trone = true;    //initialisation des trones
         grilleJeu.tabCellule[4][2].trone = true;
 
-        //System.out.println(pionCourant.couleur);
         creationPion();
-        //creationCartes();
     }
 
     public void Victoire() {
