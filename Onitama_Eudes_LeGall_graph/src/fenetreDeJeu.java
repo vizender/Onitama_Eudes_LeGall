@@ -83,7 +83,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
                                         panneau_grille.repaint();
                                     } 
                                 }
-                                else{
+                                else{ // Idem mais pour les bleus
                                     System.out.println("1er vagues");
                                     if (carteCourante.grilleCarte[4-(cellule.ligne + 2 - grilleJeu.celluleSelect[0])][cellule.colonne + 2 - grilleJeu.celluleSelect[1]] == true) { //Si on clique sur une case vide
                                         System.out.println("2er vagues");
@@ -117,38 +117,8 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         creationJoueurs();
         Carte CarteJeu[] = creationCartes();
 
-        CarteJeu[0].addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                if (joueurCourant.couleur == "rouge") {
-                    carteCourante = CarteJeu[0];
-                    CCenter.setText(carteCourante.nom);
-                }
-            }
-        });
-        CarteJeu[1].addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                if (joueurCourant.couleur == "rouge") {
-                    carteCourante = CarteJeu[1];
-                    CCenter.setText(carteCourante.nom);
-                }
-            }
-        });
-        CarteJeu[2].addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                if (joueurCourant.couleur == "bleu") {
-                    carteCourante = CarteJeu[2];
-                    CCenter.setText(carteCourante.nom);
-                }
-            }
-        });
-        CarteJeu[3].addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                if (joueurCourant.couleur == "bleu") {
-                    carteCourante = CarteJeu[3];
-                    CCenter.setText(carteCourante.nom);
-                }
-            }
-        });
+        
+        
 
         j1_carte1.add(CarteJeu[0]);
         j1_carte2.add(CarteJeu[1]);
@@ -402,7 +372,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     private void nom_joueur2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nom_joueur2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_nom_joueur2ActionPerformed
-
+    //Bouton de start
     private void jbt_startActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbt_startActionPerformed
         // TODO add your handling code here:
         panneau_info_joueurs.setVisible(true);
@@ -412,9 +382,12 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         panneau_grille.repaint();
     }//GEN-LAST:event_jbt_startActionPerformed
 
+    
+    //Les boutons suivants sont ceux pour choisir la carte
+    //Il neut peuvent etre selectionner que pour les joueurs courants quansd se sont leurs propres cartes
     private void btn_j1_c1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_j1_c1ActionPerformed
-        if (joueurCourant.couleur == "bleu") {
-            carteCourante = CarteJeu[0];
+        if (joueurCourant.couleur == "bleu") {  
+            carteCourante = CarteJeu[0]; //Bouton bas droite
             System.out.println(carteCourante.nom);
             CCenter.setText(carteCourante.nom);
             panneau_grille.repaint();
@@ -423,7 +396,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
 
     private void btn_j1_c2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_j1_c2ActionPerformed
         if (joueurCourant.couleur == "bleu") {
-            carteCourante = CarteJeu[1];
+            carteCourante = CarteJeu[1]; //bouton bas gauche
             System.out.println(carteCourante.nom);
             CCenter.setText(carteCourante.nom);
             panneau_grille.repaint();
@@ -432,7 +405,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
 
     private void btn_j2_c1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_j2_c1ActionPerformed
         if (joueurCourant.couleur == "rouge") {
-            carteCourante = CarteJeu[2];
+            carteCourante = CarteJeu[2]; //bouton haut gauche
             System.out.println(carteCourante.nom);
             CCenter.setText(carteCourante.nom);
             panneau_grille.repaint();
@@ -441,7 +414,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
 
     private void btn_j2_c2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_j2_c2ActionPerformed
         if (joueurCourant.couleur == "rouge") {
-            carteCourante = CarteJeu[3];
+            carteCourante = CarteJeu[3]; //bouton haut droit
             System.out.println(carteCourante.nom);
             CCenter.setText(carteCourante.nom);
             panneau_grille.repaint();
@@ -489,17 +462,18 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         });
     }
 
+    //On change de joueur
     public void joueurSuivant() {
         if (joueurCourant == ListeJoueurs[0]) {
             joueurCourant = ListeJoueurs[1];
         } else {
             joueurCourant = ListeJoueurs[0];
         }
-        carteCourante = null;
-        JCenter.setText(ListeJoueurs[0].nom);
-        panneau_grille.repaint();
+        carteCourante = null; // On remets la carte courante a null par precaution
+        panneau_grille.repaint(); // On repaint des qu'on joue, ie quand on change de joueur
     }
 
+    //attribution des couleurs non aléatoires, rouge en 0 par defaut
     public void attribuerCouleurAuxJoueurs() {
         ListeJoueurs[0].affecterCouleur("rouge");
         ListeJoueurs[1].affecterCouleur("bleu");
@@ -584,7 +558,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
                 }
             } while (test == false); // On confirme pas de doublon, on passe a l'attribution de la carte suivante
         }
-
+        //On rajoute les cartes dans le jpanel via le hashage de la classe carte
         j1_carte1.add(CarteJeu[0]);
         j1_carte2.add(CarteJeu[1]);
         j2_carte1.add(CarteJeu[2]);
