@@ -42,26 +42,26 @@ public class fenetreDeJeu extends javax.swing.JFrame {
                 cellule.getBackground().setColorFilter(new java.awt.Color(240, 240, 0), PorterDuff.Mode.MULTIPLY);*/
 
                 cellule.addActionListener(new java.awt.event.ActionListener() {
-                    public void actionPerformed(java.awt.event.ActionEvent evt) {
-                        if (carteCourante != null) {
-                            if (cellule.pionCourant != null && cellule.pionCourant.couleur == joueurCourant.couleur) {     //Si un pion du joueur courant
-                                grilleJeu.selectCellule(cellule.ligne, cellule.colonne);}
+                    public void actionPerformed(java.awt.event.ActionEvent evt) { //Quand on clique sur une case du jeu
+                        if (carteCourante != null) { //Pour joueur, on verifier que le joueur courant a selectionné une carte
+                            if (cellule.pionCourant != null && cellule.pionCourant.couleur == joueurCourant.couleur) {     //Si on selectionne un pion pour la premiere fois et qu'il est de la couleur du joueur courant, il devient "pion courant", pret a etre joué
+                                grilleJeu.selectCellule(cellule.ligne, cellule.colonne);} 
                                 
-                            else if (cellule.pionCourant == null && grilleJeu.celluleSelect[0] != 5) {
+                            else if (cellule.pionCourant == null && grilleJeu.celluleSelect[0] != 5) { // si on a selectionné un pion et on verifie que le mouvement est autorisé par la carte selectionnée 
                                 carteCourante.afficherGrille();
-                                if (carteCourante.grilleCarte[4-(cellule.ligne + 2 - grilleJeu.celluleSelect[0])][cellule.colonne + 2 - grilleJeu.celluleSelect[1]] == true) {
+                                if (carteCourante.grilleCarte[4-(cellule.ligne + 2 - grilleJeu.celluleSelect[0])][cellule.colonne + 2 - grilleJeu.celluleSelect[1]] == true) { //Si on clique sur une case vide
                                     System.out.println("C'EST CARREMENT LA WIN");
-                                    grilleJeu.deplacerPion(cellule.ligne, cellule.colonne);
+                                    grilleJeu.deplacerPion(cellule.ligne, cellule.colonne); // On deplace
                                     //changementCarte();
-                                    changerCarte(carteCourante);
+                                    changerCarte(carteCourante); // On echange des cartes
                                     joueurSuivant();}
-                            } else if (cellule.pionCourant.couleur != joueurCourant.couleur && grilleJeu.celluleSelect[0] != 5) {
-                                if (cellule.pionCourant.roi == true) {
+                            } else if (cellule.pionCourant.couleur != joueurCourant.couleur && grilleJeu.celluleSelect[0] != 5) { // Si on clique sur un pion adverse
+                                if (cellule.pionCourant.roi == true) { // Si c'est un roi
                                     joueurSuivant();
-                                    Victoire();
+                                    Victoire(); // On gagne
                                 }
-                                grilleJeu.deplacerPion(cellule.ligne, cellule.colonne);
-                                if (grilleJeu.compterPions() != null) {
+                                grilleJeu.deplacerPion(cellule.ligne, cellule.colonne); //On deplace le pion
+                                if (grilleJeu.compterPions() != null) { // Si il n'y a plus de pions
                                     jLvictoire.setText("Victoire de " + joueurCourant.nom); //Victoire du joueur
                                     cellule.setEnabled(false);
                                     jPvictoire.setVisible(true);
@@ -572,6 +572,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         j2_carte1.repaint();
         j2_carte2.repaint();
         att_carte.repaint();
+        
     }
     
     public void changementCarte(){
