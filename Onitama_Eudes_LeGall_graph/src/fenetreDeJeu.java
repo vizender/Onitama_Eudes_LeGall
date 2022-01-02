@@ -35,6 +35,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
 
                 cellule.addActionListener(new java.awt.event.ActionListener() {
                     public void actionPerformed(java.awt.event.ActionEvent evt) {
+                        System.out.println(joueurCourant.nom);
                         if (carteCourante != null) {
                             if (cellule.pionCourant != null && cellule.pionCourant.couleur == joueurCourant.couleur) {     //Si un pion du joueur courant
                                 grilleJeu.selectCellule(cellule.ligne, cellule.colonne);
@@ -116,6 +117,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 if (joueurCourant.couleur == "rouge") {
                     carteCourante = CarteJeu[0];
+                    CCenter.setText(carteCourante.nom);
                 }
             }
         });
@@ -123,6 +125,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 if (joueurCourant.couleur == "rouge") {
                     carteCourante = CarteJeu[1];
+                    CCenter.setText(carteCourante.nom);
                 }
             }
         });
@@ -130,6 +133,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 if (joueurCourant.couleur == "bleu") {
                     carteCourante = CarteJeu[2];
+                    CCenter.setText(carteCourante.nom);
                 }
             }
         });
@@ -137,6 +141,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 if (joueurCourant.couleur == "bleu") {
                     carteCourante = CarteJeu[3];
+                    CCenter.setText(carteCourante.nom);
                 }
             }
         });
@@ -184,8 +189,13 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         jLabelC2 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
+        CCtext = new javax.swing.JLabel();
         jLabelJ2 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jSeparator2 = new javax.swing.JSeparator();
+        JCtext = new javax.swing.JLabel();
+        CCenter = new javax.swing.JLabel();
+        JCenter = new javax.swing.JLabel();
         panneau_carte6 = new javax.swing.JPanel();
         j1_carte2 = new javax.swing.JPanel();
         j2_carte2 = new javax.swing.JPanel();
@@ -204,13 +214,13 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         jPvictoire.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "FELICITATION", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.ABOVE_TOP, new java.awt.Font("Imprint MT Shadow", 0, 24))); // NOI18N
         jPvictoire.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLvictoire.setFont(new java.awt.Font("Imprint MT Shadow", 0, 24)); // NOI18N
+        jLvictoire.setFont(new java.awt.Font("Imprint MT Shadow", 0, 48)); // NOI18N
         jLvictoire.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLvictoire.setText("VICTOIRE DE AZERTYU");
+        jLvictoire.setText("VICTOIRE !");
         jLvictoire.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPvictoire.add(jLvictoire, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 430, 90));
 
-        getContentPane().add(jPvictoire, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, 430, 210));
+        getContentPane().add(jPvictoire, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, 430, 210));
 
         panneau_grille.setBackground(new java.awt.Color(240, 230, 230));
         panneau_grille.setLayout(new java.awt.GridLayout(5, 5));
@@ -269,7 +279,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         panneau_info_partie.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 140, -1, -1));
 
         jSeparator1.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
-        panneau_info_partie.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 290, 10));
+        panneau_info_partie.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 290, 10));
 
         jLabelJ1.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         panneau_info_partie.add(jLabelJ1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 80, -1, -1));
@@ -293,14 +303,33 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         jLabel12.setText("Joueur 2");
         panneau_info_partie.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, -1, -1));
 
-        jLabel13.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
-        jLabel13.setText("Couleur");
-        panneau_info_partie.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, -1, -1));
+        CCtext.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        CCtext.setText("Carte Courante");
+        panneau_info_partie.add(CCtext, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, -1, -1));
 
         jLabelJ2.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         panneau_info_partie.add(jLabelJ2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, -1, -1));
 
-        getContentPane().add(panneau_info_partie, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 470, 350, 290));
+        jLabel14.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        jLabel14.setText("Couleur");
+        panneau_info_partie.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, -1, -1));
+
+        jSeparator2.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        panneau_info_partie.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 290, 10));
+
+        JCtext.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        JCtext.setText("Joueur Courant");
+        panneau_info_partie.add(JCtext, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, -1, -1));
+
+        CCenter.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        CCenter.setText(" ");
+        panneau_info_partie.add(CCenter, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 280, 130, -1));
+
+        JCenter.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        JCenter.setText(" ");
+        panneau_info_partie.add(JCenter, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 250, 130, -1));
+
+        getContentPane().add(panneau_info_partie, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 450, 350, 330));
 
         panneau_carte6.setBackground(new java.awt.Color(240, 230, 200));
         panneau_carte6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -383,6 +412,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         if (joueurCourant.couleur == "bleu") {
             carteCourante = CarteJeu[0];
             System.out.println(carteCourante.nom);
+            CCenter.setText(carteCourante.nom);
             panneau_grille.repaint();
         }
     }//GEN-LAST:event_btn_j1_c1ActionPerformed
@@ -391,6 +421,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         if (joueurCourant.couleur == "bleu") {
             carteCourante = CarteJeu[1];
             System.out.println(carteCourante.nom);
+            CCenter.setText(carteCourante.nom);
             panneau_grille.repaint();
         }
     }//GEN-LAST:event_btn_j1_c2ActionPerformed
@@ -399,6 +430,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         if (joueurCourant.couleur == "rouge") {
             carteCourante = CarteJeu[2];
             System.out.println(carteCourante.nom);
+            CCenter.setText(carteCourante.nom);
             panneau_grille.repaint();
         }
     }//GEN-LAST:event_btn_j2_c1ActionPerformed
@@ -407,6 +439,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         if (joueurCourant.couleur == "rouge") {
             carteCourante = CarteJeu[3];
             System.out.println(carteCourante.nom);
+            CCenter.setText(carteCourante.nom);
             panneau_grille.repaint();
 
         }
@@ -459,6 +492,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
             joueurCourant = ListeJoueurs[0];
         }
         carteCourante = null;
+        JCenter.setText(ListeJoueurs[0].nom);
         panneau_grille.repaint();
     }
 
@@ -631,6 +665,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         jLabelJ2.setText(nomJoueur2);
         jLabelC1.setText(j1.couleur);
         jLabelC2.setText(j2.couleur);
+        JCenter.setText(ListeJoueurs[0].nom);
     }
 
     public void initialiserPartie() {
@@ -652,12 +687,15 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         for (int i = 4; i < 5; i++) {
             att_carte.setVisible(false);
         }
-        jLvictoire.setText("Victoire de " + joueurCourant.nom); //Victoire du joueur
         jLvictoire.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPvictoire.setVisible(true);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel CCenter;
+    private javax.swing.JLabel CCtext;
+    private javax.swing.JLabel JCenter;
+    private javax.swing.JLabel JCtext;
     private javax.swing.JPanel att_carte;
     private javax.swing.JButton btn_j1_c1;
     private javax.swing.JButton btn_j1_c2;
@@ -671,7 +709,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel7;
@@ -683,6 +721,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     private javax.swing.JLabel jLvictoire;
     private javax.swing.JPanel jPvictoire;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
     private javax.swing.JButton jbt_start;
     private javax.swing.JTextField nom_joueur1;
     private javax.swing.JTextField nom_joueur2;
